@@ -16,7 +16,7 @@ function AdminPanel() {
   useEffect(() => {
     const fetchProducts = async () => {
         try {
-            const response = await fetch('http://boodaikg.com/api/products');
+            const response = await fetch('https://api/boodaikg.com/products');
             const data = await response.json();
             console.log('Fetched data:', data);  // Log the response data
             setProducts(data);
@@ -87,7 +87,7 @@ function AdminPanel() {
     }
   
     try {
-      const response = await fetch('http://boodaikg.com/api/products', {
+      const response = await fetch('https://api/boodaikg.com/products', {
         method: 'POST',
         body: formData,
       });
@@ -115,7 +115,7 @@ function AdminPanel() {
   
     try {
       // Отправка DELETE-запроса на сервер
-      const response = await fetch(`http://boodaikg.com/api/products/${productId}`, {
+      const response = await fetch(`https://api/boodaikg.com/products/${productId}`, {
         method: 'DELETE',
       });
   
@@ -146,7 +146,7 @@ function AdminPanel() {
             filteredProducts.map((product) => (
               <div key={product.id} className="product-card">
                 <img
-                  src={`http://boodaikg.com${product.image_url}`}
+                  src={`https://boodaikg.com${product.image_url}`}
                   alt={product.name}
                   className="product-image"
                 />

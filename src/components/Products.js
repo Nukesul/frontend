@@ -13,7 +13,7 @@ function Products() {
   const categories = useRef([]);
 
   useEffect(() => {
-    fetch("http://boodaikg.com/api/products")
+    fetch("https://api/boodaikg.com/products")
       .then((response) => response.json())
       .then((data) => {
         setProducts(data);
@@ -113,7 +113,7 @@ function Products() {
         >
           <img
             className="menu-product-image"
-            src={`http://boodaikg.com${product.image_url}`}
+            src={`https://boodaikg.com${product.image_url}`}
             alt={product.name}
           />
           <div className="menu-product-info">
@@ -147,7 +147,7 @@ function Products() {
             >
               <img
                 className="best-seller-product-image"
-                src={`http://boodaikg.com${product.image_url}`}
+                src={`https://boodaikg.com${product.image_url}`}
                 alt={product.name}
               />
               <div className="best-seller-product-info">
@@ -201,7 +201,7 @@ function Products() {
                     >
                       <img
                         className="menu-product-image"
-                        src={`http://boodaikg.com${product.image_url}`}
+                        src={`https://boodaikg.com${product.image_url}`}
                         alt={product.name}
                       />
                       <div className="menu-product-info">
@@ -236,7 +236,7 @@ function Products() {
             </button>
             <div className="modal-body">
               <img
-                src={`http://boodaikg.com${selectedProduct.product.image_url}`}
+                src={`https://boodaikg.com${selectedProduct.product.image_url}`}
                 alt={selectedProduct.product.name}
                 className="modal-image"
               />
