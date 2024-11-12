@@ -23,7 +23,7 @@ const Nav = () => {
           </div>
 
           <div className="navbar-right">
-            {/* Бургер-меню для мобильных */}
+        
             <div className="hamburger-menu" onClick={toggleBurgerMenu}>
               {isBurgerMenuOpen ? (
                 <FaTimes className="hamburger-icon" />

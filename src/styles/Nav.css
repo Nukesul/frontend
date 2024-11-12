@@ -28,6 +28,11 @@
   height: 50px;
   margin-right: 10px;
 }
+@media (max-width: 768px) {
+  .pizza-logo {
+    display: none; 
+  }
+}
 
 .brand-name {
   font-size: 28px;
