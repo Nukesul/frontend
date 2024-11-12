@@ -278,6 +278,8 @@ function AdminPanel() {
 
       <div className="products-section">
         {renderProductsByCategory('Пиццы')}
+        {renderProductsByCategory('Часто продаваемые товары')}
+
         {renderProductsByCategory('Бургеры')}
         {renderProductsByCategory('Суши')}
         {renderProductsByCategory('Десерты')}
