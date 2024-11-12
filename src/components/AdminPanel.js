@@ -115,9 +115,10 @@ function AdminPanel() {
   
     try {
       // Отправка DELETE-запроса на сервер
-      const response = await fetch(`https://nukesul-backend-1bde.twc1.net${productId}`, {
-        method: 'DELETE',
-      });
+      const response = await fetch(`https://nukesul-backend-1bde.twc1.net/api/products/${productId}`, {
+  method: 'DELETE',
+});
+
   
       // Если запрос успешен
       if (response.ok) {
