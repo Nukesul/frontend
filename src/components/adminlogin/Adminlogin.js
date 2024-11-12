@@ -37,6 +37,12 @@ const Adminlogin = () => {
                 body: JSON.stringify({ username, password }),
             });
 
+            // Проверка, что ответ — JSON
+            const contentType = response.headers.get('content-type');
+            if (!contentType || !contentType.includes('application/json')) {
+                throw new Error('Ответ не является JSON');
+            }
+
             if (!response.ok) {
                 const errorData = await response.json();
                 setError(errorData.message || 'Ошибка входа');
@@ -61,7 +67,7 @@ const Adminlogin = () => {
             navigate('/AdminPanel');
         } catch (error) {
             console.error('Ошибка при выполнении запроса:', error);
-            setError('Ошибка сети');
+            setError('Ошибка сети или некорректный ответ');
             setLoading(false);
         }
     };
