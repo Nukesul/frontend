@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom"; // Импортируем useNavigate
+import { useLocation, useNavigate } from "react-router-dom";
 import "../styles/OrderPage.css";
 
 const OrderPage = () => {
@@ -50,30 +50,31 @@ const OrderPage = () => {
   };
 
   // Функция для отправки данных заказа в Telegram
+  const sendOrderToTelegram = async () => {
+    try {
+      // Преобразуем объекты данных в строку запроса для URL
+      const queryParams = new URLSearchParams({
+        orderDetails: JSON.stringify(orderDetails),
+        deliveryDetails: JSON.stringify(deliveryDetails),
+        cartItems: JSON.stringify(cartItems),
+      });
 
-const sendOrderToTelegram = async () => {
-  try {
-    // Преобразуем объекты данных в строку запроса для URL
-    const queryParams = new URLSearchParams({
-      orderDetails: JSON.stringify(orderDetails),
-      deliveryDetails: JSON.stringify(deliveryDetails),
-      cartItems: JSON.stringify(cartItems),
-    });
+      const response = await fetch(`https://nukesul-backend-1bde.twc1.net/api/send-order?${queryParams.toString()}`, {
+        method: 'GET',
+      });
 
-    const response = await fetch(`https://nukesul-backend-1bde.twc1.net/api/send-order?${queryParams.toString()}`, {
-      method: 'GET',  // Используем GET-запрос
-    });
-
-    if (response.ok) {
-      alert('Заказ успешно отправлен в Telegram!');
-    } else {
+      if (response.ok) {
+        alert('Заказ успешно отправлен в Telegram!');
+        setCartItems([]);  // Обнуляем корзину
+        navigate("/");  // Возвращаем на главную страницу
+      } else {
+        alert('Ошибка при отправке заказа.');
+      }
+    } catch (error) {
+      console.error('Ошибка:', error);
       alert('Ошибка при отправке заказа.');
     }
-  } catch (error) {
-    console.error('Ошибка:', error);
-    alert('Ошибка при отправке заказа.');
-  }
-};
+  };
 
   return (
     <div className="order-page">
