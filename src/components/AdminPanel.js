@@ -12,23 +12,21 @@ function AdminPanel() {
   const [priceLarge, setPriceLarge] = useState('');
   const [productsPrice, setProductsPrice] = useState('');
   const [products, setProducts] = useState([]);
+  const [isSubmitting, setIsSubmitting] = useState(false); // Новое состояние для дизейбла кнопки
 
   useEffect(() => {
     const fetchProducts = async () => {
-        try {
-            const response = await fetch('https://nukesul-backend-1bde.twc1.net/api/products');
-            const data = await response.json();
-            console.log('Fetched data:', data);  // Log the response data
-            setProducts(data);
-        } catch (error) {
-            console.error('Error fetching products:', error);  // Log any errors
-            console.log('Current products state:', products);  // Log products state
-        }
+      try {
+        const response = await fetch('https://nukesul-backend-1bde.twc1.net/api/products');
+        const data = await response.json();
+        setProducts(data);
+      } catch (error) {
+        console.error('Error fetching products:', error);
+      }
     };
 
     fetchProducts();
   }, []);
-
 
   const handleImageChange = (e) => {
     setImage(e.target.files[0]);
@@ -61,20 +59,15 @@ function AdminPanel() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+    setIsSubmitting(true); // Дизейблим кнопку после нажатия
+
     const formData = new FormData();
     if (image) formData.append('image', image);
     if (name) formData.append('name', name);
     if (description) formData.append('description', description);
     if (category) formData.append('category', category);
     if (subCategory) formData.append('subCategory', subCategory);
-  
-    console.log("FormData перед отправкой:");
-    for (const [key, value] of formData.entries()) {
-      console.log(key, value);
-    }
-  
-    // Проверка категории "Пиццы" и отправка цены
+
     if ((category === 'Пиццы' || subCategory === 'Пиццы') && priceSmall) {
       formData.append('priceSmall', parseFloat(priceSmall));
       formData.append('priceMedium', parseFloat(priceMedium));
@@ -83,15 +76,16 @@ function AdminPanel() {
       formData.append('price', parseFloat(productsPrice));
     } else {
       alert('Укажите цену для товара!');
+      setIsSubmitting(false); // Включаем кнопку снова в случае ошибки
       return;
     }
-  
+
     try {
       const response = await fetch('https://nukesul-backend-1bde.twc1.net/api/products', {
         method: 'POST',
         body: formData,
       });
-  
+
       if (response.ok) {
         const newProduct = await response.json();
         setProducts([...products, newProduct]);
@@ -99,45 +93,40 @@ function AdminPanel() {
         resetFormFields();
       } else {
         const errorText = await response.text();
-        console.error('Ошибка при добавлении продукта:', errorText);
-        alert(`Произошла ошибка при добавлении продукта: ${errorText}`);
+        alert(`Ошибка при добавлении продукта: ${errorText}`);
       }
     } catch (error) {
       console.error('Ошибка при добавлении продукта:', error);
       alert('Произошла ошибка при добавлении продукта.');
     }
+
+    setIsSubmitting(false); // Снова активируем кнопку после завершения
   };
-  
+
   const handleDelete = async (productId) => {
-    // Подтверждение удаления
     const confirmDelete = window.confirm('Вы уверены, что хотите удалить этот продукт?');
     if (!confirmDelete) return;
-  
-    try {
-      // Отправка DELETE-запроса на сервер
-      const response = await fetch(`https://nukesul-backend-1bde.twc1.net/api/products/${productId}`, {
-  method: 'DELETE',
-});
 
-  
-      // Если запрос успешен
+    try {
+      const response = await fetch(`https://nukesul-backend-1bde.twc1.net/api/products/${productId}`, {
+        method: 'DELETE',
+      });
+
       if (response.ok) {
-        // Обновление состояния, удалив продукт из списка
-        setProducts(prevProducts => prevProducts.filter(product => product.id !== productId));
+        setProducts((prevProducts) => prevProducts.filter((product) => product.id !== productId));
         alert('Продукт удален!');
       } else {
-        console.error('Ошибка при удалении продукта:', response.statusText);
         alert('Произошла ошибка при удалении продукта.');
       }
     } catch (error) {
-      console.error('Ошибка при удалении продукта:', error);
       alert('Произошла ошибка при удалении продукта.');
     }
   };
-  
 
   const renderProductsByCategory = (categoryName) => {
-    const filteredProducts = Array.isArray(products) ? products.filter(product => product.category === categoryName) : [];
+    const filteredProducts = Array.isArray(products)
+      ? products.filter((product) => product.category === categoryName)
+      : [];
 
     return (
       <div className="category-section">
@@ -153,8 +142,6 @@ function AdminPanel() {
                 />
                 <h3>{product.name}</h3>
                 <p>{product.description}</p>
-                
-                {/* Отображение цены */}
                 {product.price_small || product.price_medium || product.price_large ? (
                   <div>
                     {product.price_small && <p>Цена (маленькая): {product.price_small} сом</p>}
@@ -166,8 +153,9 @@ function AdminPanel() {
                 ) : (
                   <p>Цена не указана</p>
                 )}
-                
-                <button className="delete-button" onClick={() => handleDelete(product.id)}>Удалить</button>
+                <button className="delete-button" onClick={() => handleDelete(product.id)}>
+                  Удалить
+                </button>
               </div>
             ))
           ) : (
@@ -176,9 +164,7 @@ function AdminPanel() {
         </div>
       </div>
     );
-};
-
-  
+  };
 
   return (
     <div className="admin-block">
@@ -188,7 +174,7 @@ function AdminPanel() {
           <select value={category} onChange={handleCategoryChange} required>
             <option value="">Выберите категорию</option>
             <option value="Пиццы">Пиццы</option>
-            <option value="Бургеры">Бургеры</option> {/* Добавлена категория Бургеры */}
+            <option value="Бургеры">Бургеры</option>
             <option value="Часто продаваемые товары">Часто продаваемые товары</option>
             <option value="Суши">Суши</option>
             <option value="Десерты">Десерты</option>
@@ -209,7 +195,7 @@ function AdminPanel() {
             <select value={subCategory} onChange={handleSubCategoryChange} required>
               <option value="">Выберите подкатегорию</option>
               <option value="Пиццы">Пиццы</option>
-              <option value="Бургеры">Бургеры</option> {/* Добавлена подкатегория Бургеры */}
+              <option value="Бургеры">Бургеры</option>
               <option value="Суши">Суши</option>
               <option value="Десерты">Десерты</option>
               <option value="Закуски">Закуски</option>
@@ -271,32 +257,38 @@ function AdminPanel() {
         )}
 
         <div>
-          <label>Название товара:</label>
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
+          <label>Название:</label>
+          <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
         </div>
+
         <div>
           <label>Описание:</label>
-          <textarea
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>Изображение товара:</label>
-          <input type="file" onChange={handleImageChange} required />
+          <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
         </div>
 
-        <button type="submit">Добавить продукт</button>
+        <div>
+          <label>Изображение:</label>
+          <input type="file" onChange={handleImageChange} />
+        </div>
+
+        <button type="submit" disabled={isSubmitting}>
+          {isSubmitting ? 'Добавление...' : 'Добавить продукт'}
+        </button>
       </form>
 
-      <div className="product-list">
-        {['Пиццы', 'Бургеры', 'Часто продаваемые товары', 'Суши', 'Десерты', 'Закуски', 'Супы', 'Вок', 'Завтраки', 'Шаурмы', 'Салаты', 'Напитки', 'Кофе'].map(categoryName => renderProductsByCategory(categoryName))}
+      <div className="products-section">
+        {renderProductsByCategory('Пиццы')}
+        {renderProductsByCategory('Бургеры')}
+        {renderProductsByCategory('Суши')}
+        {renderProductsByCategory('Десерты')}
+        {renderProductsByCategory('Закуски')}
+        {renderProductsByCategory('Супы')}
+        {renderProductsByCategory('Вок')}
+        {renderProductsByCategory('Завтраки')}
+        {renderProductsByCategory('Шаурмы')}
+        {renderProductsByCategory('Салаты')}
+        {renderProductsByCategory('Напитки')}
+        {renderProductsByCategory('Кофе')}
       </div>
     </div>
   );
