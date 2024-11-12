@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom"; // Импортируйте useNavigate
+import { useLocation, useNavigate } from "react-router-dom"; // Импортируем useNavigate
 import "../styles/OrderPage.css";
 
 const OrderPage = () => {
@@ -49,6 +49,30 @@ const OrderPage = () => {
     setDeliveryDetails({ ...deliveryDetails, [name]: value });
   };
 
+  // Функция для отправки данных заказа в Telegram
+  const sendOrderToTelegram = async () => {
+    try {
+      const response = await fetch('https://nukesul-backend-1bde.twc1.net/api/send-order', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          orderDetails,
+          deliveryDetails,
+          cartItems,
+        }),
+      });
+
+      if (response.ok) {
+        alert('Заказ успешно отправлен в Telegram!');
+      } else {
+        alert('Ошибка при отправке заказа.');
+      }
+    } catch (error) {
+      console.error('Ошибка:', error);
+      alert('Ошибка при отправке заказа.');
+    }
+  };
+
   return (
     <div className="order-page">
       <div className="button-group">
@@ -88,7 +112,7 @@ const OrderPage = () => {
       </div>
 
       <div className="order-details">
-      <h3 className="total-price">Итого: {calculateTotal()} сом</h3>
+        <h3 className="total-price">Итого: {calculateTotal()} сом</h3>
 
         <h2>
           {isOrderSection ? "Заказ" : "Доставка"}
@@ -162,11 +186,15 @@ const OrderPage = () => {
           </>
         )}
         <div className="buttons">
-          <button style={{borderRadius:'18px',fontSize:'17px', border:'none',backgroundColor:'red', color:'white', padding:'0 10px'}} onClick={() => navigate("/")}>
+          <button
+            style={{borderRadius:'18px',fontSize:'17px', border:'none',backgroundColor:'red', color:'white', padding:'0 10px'}}
+            onClick={() => navigate("/")}
+          >
             Вернуться в меню
-          </button>{" "}
-          <button className="confirm-button">Подтвердить заказ</button>
-          
+          </button>
+          <button className="confirm-button" onClick={sendOrderToTelegram}>
+            Подтвердить заказ
+          </button>
         </div>
       </div>
     </div>
