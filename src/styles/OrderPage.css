@@ -288,3 +288,80 @@
     font-size: 1.4rem; /* Увеличиваем итоговую цену */
   }
 }
+.success-animation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.checkmark-circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #28a745;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: circleFadeIn 0.6s ease-out;
+}
+
+.checkmark {
+  width: 40px;
+  height: 80px;
+  border-right: 5px solid white;
+  border-bottom: 5px solid white;
+  transform: rotate(45deg);
+  position: absolute;
+  top: 20px;
+  left: 35px;
+  animation: drawCheckmark 0.8s ease-out forwards;
+}
+
+.success-message {
+  font-size: 18px;
+  font-weight: bold;
+  color: #28a745;
+  margin-top: 15px;
+  animation: fadeInText 0.5s ease-in-out 1s forwards;
+}
+
+/* Анимация появления круга */
+@keyframes circleFadeIn {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Анимация рисования галочки */
+@keyframes drawCheckmark {
+  0% {
+    width: 0;
+    height: 0;
+  }
+  50% {
+    width: 40px;
+    height: 0;
+  }
+  100% {
+    width: 40px;
+    height: 80px;
+  }
+}
+
+/* Анимация для текста */
+@keyframes fadeInText {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

@@ -89,7 +89,7 @@ const OrderPage = () => {
           Доставка
         </button>
         <button className="button_buy" onClick={() => setIsOrderSection(true)}>
-          Сабой 
+          Сабой
         </button>
       
       </div>
@@ -208,9 +208,15 @@ const OrderPage = () => {
         </div>
 
         {isOrderSent && (
-          <div className="success-checkmark">
-            ✅ Заказ успешно отправлен!
+          <div class="success-animation">
+          <div class="checkmark-circle">
+            <div class="checkmark"></div>
           </div>
+          <div class="success-message">
+            Товар отправлен! Наши сотрудники свяжутся с вами.
+          </div>
+        </div>
+        
         )}
       </div>
     </div>
