@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'; 
 import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn } from 'react-icons/fa';
 import '../styles/Footer.css';
 
@@ -22,14 +22,15 @@ const Footer = () => {
         </div>
         <div className="footer-contact">
           <h3>Контакты</h3>
-          <p>Телефон: +996 • 0 (553) 323-256</p>
-          <p>Email: info@boodai.pizza</p>
+          <p>Телефон: <a href="tel:+996998064064">+996 • 0 (998) 064-064</a></p>
+          <p>Телефон (создатель): <a href="tel:+996995286328">+996 • 0 (995) 286-328</a></p>
+          <p>Email: <a href="mailto:nursutanmusa007@gmail.com">nursutanmusa007@gmail.com</a></p> {/* Ваш email */}
         </div>
         <div className="footer-social">
           <h3>Мы в социальных сетях</h3>
           <div className="social-icons">
             <a href="#facebook"><FaFacebookF /></a>
-            <a href="#instagram"><FaInstagram /></a>
+            <a href="https://www.instagram.com/boodai.pizza.osh/profilecard/?igsh=OGowdWJ6eDI2Zmxp"><FaInstagram /></a>
             <a href="#twitter"><FaTwitter /></a>
             <a href="#linkedin"><FaLinkedinIn /></a>
           </div>
@@ -37,6 +38,7 @@ const Footer = () => {
       </div>
       <div className="footer-bottom">
         <p>&copy; 2024 BOODAI PIZZA. Все права защищены.</p>
+        <p>Сайт разработан: <a href="https://github.com/Nukesul" target="_blank" rel="noopener noreferrer">Nursultan</a></p>
       </div>
     </footer>
   );

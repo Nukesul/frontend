@@ -1,14 +1,20 @@
-import React, { useState } from 'react'; 
-import { FaBars, FaTimes } from 'react-icons/fa';
-import '../styles/Nav.css'; // Подключаем стили
-import logo from '../images/logo.png';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
+import "../styles/Nav.css"; // Подключаем стили
+import logo from "../images/logo.png";
+import { Link, useNavigate } from "react-router-dom";
 
 const Nav = () => {
   const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleBurgerMenu = () => {
     setIsBurgerMenuOpen(!isBurgerMenuOpen);
+  };
+
+  const handleAboutClick = () => {
+    setIsBurgerMenuOpen(false); // Закрываем меню
+    navigate("/about"); // Переходим на страницу "О нас"
   };
 
   return (
@@ -23,7 +29,6 @@ const Nav = () => {
           </div>
 
           <div className="navbar-right">
-        
             <div className="hamburger-menu" onClick={toggleBurgerMenu}>
               {isBurgerMenuOpen ? (
                 <FaTimes className="hamburger-icon" />
@@ -38,19 +43,23 @@ const Nav = () => {
       {/* Отдельный объект ниже навбара для больших экранов */}
       <div className="navbar-links-container">
         <ul className="navbar-links">
-          <li><a href="#about">О нас</a></li>
-          <li><a href="#contact">Контакты</a></li>
+          <li>
+            <Link to="/about" onClick={handleAboutClick}>О нас</Link>
+          </li>
+          <li>
+            <a href="tel:+996998064064">Контакты</a> {/* Телефонная ссылка для звонка */}
+          </li>
           <li className="divider"></li>
           <li>
             <div className="delivery-details">
               <p className="info-heading">🚗 Доставка к вашему порогу!</p>
-              <p className="rating-info">🌟 40 мин • 4,43⭐</p>
+              <p className="rating-info">🌟 25 мин • 4,43⭐</p>
             </div>
           </li>
           <li className="divider"></li>
           <li>
             <div className="contact-details">
-              <p className="contact-number">📞 +996 • 0 (553) 323-256</p>
+              <p className="contact-number">📞 +996 • 0 (998) 064-064</p>
               <p className="contact-label">Звонок для заказа</p>
             </div>
           </li>
@@ -70,12 +79,16 @@ const Nav = () => {
             <li className="divider"></li>
             <li>
               <div className="contact-details">
-                <p className="contact-number">📞 +996 • 0 (553) 323-256</p>
+                <p className="contact-number">📞 +996 • 0 (998) 064-064</p>
                 <p className="contact-label">Звонок для заказа</p>
               </div>
             </li>
-            <li><a href="#about">О нас</a></li>
-            <li><a href="#contact">Контакты</a></li>
+            <li>
+              <Link to="/about" onClick={handleAboutClick}>О нас</Link>
+            </li>
+            <li>
+              <a href="tel:+996998064064">Контакты</a> {/* Телефонная ссылка для звонка */}
+            </li>
           </ul>
         </div>
       )}

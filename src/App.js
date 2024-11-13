@@ -9,6 +9,7 @@ import Cart from './components/Cart';
 import OrderPage from './components/OrderPage';
 import AdminPanel from './components/AdminPanel';
 import Adminlogin from './components/adminlogin/Adminlogin';
+import Aboud from "./components/Aboud";
 
 function App() {
   const userId = 1; // Замените на нужное значение
@@ -29,13 +30,13 @@ function App() {
 
   return (
     <Router>
+      <Nav />
       <Routes>
-        {/* Главная страница с Nav, Products и Footer */}
+        {/* Главная страница с Products и Footer */}
         <Route 
           path="/" 
           element={
             <div>
-              <Nav />
               <Products updateCart={updateCart} /> {/* Передаем updateCart в Products */}
               <Footer />
               <Cart cartItems={cartItems} updateCart={updateCart} /> {/* Вставляем компонент Cart на главной странице */}
@@ -52,6 +53,9 @@ function App() {
         {/* Страница Admin */}
         <Route path="/Admin" element={<Adminlogin userId={userId} />} />
         <Route path="/AdminPanel" element={<AdminPanel />} />
+
+        {/* Страница "О нас" */}
+        <Route path="/about" element={<Aboud />} /> {/* Добавляем роут для страницы "О нас" */}
       </Routes>
     </Router>
   );
