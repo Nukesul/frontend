@@ -516,8 +516,10 @@
     flex: 1;
     padding: 8px;
   }
+  .menu-product-title{
+    font-size: 17px;
+  }
 
-  .menu-product-title,
   .menu-product-price,
   .menu-product-description {
     font-size: 14px;
