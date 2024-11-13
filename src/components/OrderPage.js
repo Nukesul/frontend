@@ -4,11 +4,14 @@ import "../styles/OrderPage.css";
 
 const OrderPage = () => {
   const location = useLocation();
-  const navigate = useNavigate(); // Инициализация useNavigate
-  const { cartItems: initialCartItems } = location.state;
+  const navigate = useNavigate();
 
+  // Проверка, что location.state существует, иначе используем пустой массив
+  const initialCartItems = location.state?.cartItems || [];
   const [cartItems, setCartItems] = useState(initialCartItems);
-  const [isOrderSection, setIsOrderSection] = useState(true);
+
+  // Устанавливаем isOrderSection на false, чтобы "Доставка" была активной по умолчанию
+  const [isOrderSection, setIsOrderSection] = useState(false);
   const [orderDetails, setOrderDetails] = useState({
     name: "",
     phone: "",
@@ -20,6 +23,7 @@ const OrderPage = () => {
     address: "",
     comments: "",
   });
+  const [isOrderSent, setIsOrderSent] = useState(false);
 
   const handleQuantityChange = (itemId, change) => {
     setCartItems((prevItems) => {
@@ -52,7 +56,6 @@ const OrderPage = () => {
   // Функция для отправки данных заказа в Telegram
   const sendOrderToTelegram = async () => {
     try {
-      // Преобразуем объекты данных в строку запроса для URL
       const queryParams = new URLSearchParams({
         orderDetails: JSON.stringify(orderDetails),
         deliveryDetails: JSON.stringify(deliveryDetails),
@@ -64,9 +67,12 @@ const OrderPage = () => {
       });
 
       if (response.ok) {
-        alert('Заказ успешно отправлен в Telegram!');
-        setCartItems([]);  // Обнуляем корзину
-        navigate("/");  // Возвращаем на главную страницу
+        setIsOrderSent(true);
+        setCartItems([]);
+        setTimeout(() => {
+          setIsOrderSent(false);
+          navigate("/");
+        }, 2000);
       } else {
         alert('Ошибка при отправке заказа.');
       }
@@ -79,12 +85,13 @@ const OrderPage = () => {
   return (
     <div className="order-page">
       <div className="button-group">
-        <button className="button_buy" onClick={() => setIsOrderSection(true)}>
-          Заказ
-        </button>
-        <button className="button_buy" onClick={() => setIsOrderSection(false)}>
+      <button className="button_buy" onClick={() => setIsOrderSection(false)}>
           Доставка
         </button>
+        <button className="button_buy" onClick={() => setIsOrderSection(true)}>
+          Сабой 
+        </button>
+      
       </div>
 
       <div className="items-section">
@@ -118,7 +125,7 @@ const OrderPage = () => {
         <h3 className="total-price">Итого: {calculateTotal()} сом</h3>
 
         <h2>
-          {isOrderSection ? "Заказ" : "Доставка"}
+          {isOrderSection ? "Сабой" : "Доставка"}
         </h2>
         {isOrderSection ? (
           <>
@@ -199,6 +206,12 @@ const OrderPage = () => {
             Подтвердить заказ
           </button>
         </div>
+
+        {isOrderSent && (
+          <div className="success-checkmark">
+            ✅ Заказ успешно отправлен!
+          </div>
+        )}
       </div>
     </div>
   );

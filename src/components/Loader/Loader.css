@@ -1,0 +1,90 @@
+/* Основной стиль для кастомного загрузчика */
+.custom-loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #e0f7fa, #ffe0b2);
+    position: relative;
+    z-index: 999;
+    overflow: hidden;
+    transition: opacity 1s ease-in-out; /* Плавный переход */
+}
+
+.custom-loader.custom-fade-out {
+    opacity: 0; /* Плавное исчезновение */
+}
+
+.custom-loader-content {
+    text-align: center;
+    animation: custom-fadeIn 1.5s ease-in-out;
+}
+
+.custom-circle {
+    width: 30px;
+    height: 30px;
+    margin: 0 12px;
+    display: inline-block;
+    border-radius: 50%;
+    background-color: #ff6f61;
+    animation: custom-bounce 1s infinite ease-in-out, custom-pulse 2s infinite alternate;
+}
+
+.custom-circle:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.custom-circle:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+/* Анимация прыжков кружков */
+@keyframes custom-bounce {
+    0%, 100% {
+        transform: translateY(0);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translateY(-30px);
+        opacity: 1;
+    }
+}
+
+/* Дополнительная анимация пульсации для "вау"-эффекта */
+@keyframes custom-pulse {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.3);
+    }
+}
+
+/* Анимация плавного появления */
+@keyframes custom-fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Анимация для текста */
+.custom-loader-content h2 {
+    margin-top: 30px;
+    font-family: 'Roboto', sans-serif;
+    color: #37474f;
+    font-size: 1.8rem;
+    opacity: 0;
+    animation: custom-fadeText 2.5s forwards 1.5s;
+}
+
+/* Плавное появление текста */
+@keyframes custom-fadeText {
+    to {
+        opacity: 1;
+    }
+}

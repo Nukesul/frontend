@@ -12,8 +12,7 @@ function AdminPanel() {
   const [priceLarge, setPriceLarge] = useState('');
   const [productsPrice, setProductsPrice] = useState('');
   const [products, setProducts] = useState([]);
-  const [isSubmitting, setIsSubmitting] = useState(false); // Новое состояние для дизейбла кнопки
-
+  const [isSubmitting, setIsSubmitting] = useState(false); 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
