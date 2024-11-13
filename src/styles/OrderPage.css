@@ -187,6 +187,7 @@
   width: 100%; /* Полная ширина */
   padding: 10px 0; /* Отступы внутри */
   border: 1px solid #ccc; /* Граница */
+  color: black;
   border-radius: 5px; /* Скругленные углы */
   font-size: 1rem; /* Размер шрифта */
   transition: border-color 0.3s; /* Плавный переход для границы */
