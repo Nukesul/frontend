@@ -299,59 +299,68 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
   z-index: 1000;
 }
 
 .success-modal-content {
   background-color: white;
-  padding: 20px;
-  border-radius: 10px;
+  padding: 30px;
+  border-radius: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  animation: scaleUpModal 0.4s ease-out;
+}
+
+@keyframes scaleUpModal {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .checkmark-circle {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   background-color: #4caf50;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
 
 .checkmark {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  border: solid 5px white;
-  border-top: none;
-  border-right: none;
-  transform: rotate(-45deg);
-  animation: draw 1s ease-out forwards;
+  width: 50px;
+  height: 100px;
+  border: solid white;
+  border-width: 0 8px 8px 0;
+  transform: rotate(45deg);
+  position: absolute;
+  top: 20%;
+  left: 25%;
+  animation: drawCheckmark 1s ease forwards;
 }
 
-@keyframes draw {
+@keyframes drawCheckmark {
   0% {
-    stroke-dashoffset: 100;
-  }
-  100% {
-    stroke-dashoffset: 0;
-  }
-}
-
-@keyframes scaleUp {
-  0% {
-    transform: scale(0.8);
+    width: 0;
+    height: 0;
   }
   50% {
-    transform: scale(1.1);
+    width: 50px;
+    height: 0;
   }
   100% {
-    transform: scale(1);
+    width: 50px;
+    height: 100px;
   }
 }
 
@@ -360,11 +369,11 @@
   font-size: 18px;
   font-weight: bold;
   text-align: center;
-  animation: fadeIn 1.5s forwards;
+  animation: fadeInMessage 2s forwards;
   opacity: 0;
 }
 
-@keyframes fadeIn {
+@keyframes fadeInMessage {
   0% {
     opacity: 0;
   }
