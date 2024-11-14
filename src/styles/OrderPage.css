@@ -294,99 +294,58 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+  width: 100vw;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease-in-out;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
 }
 
-/* Появление модального окна */
-.success-modal.show {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* Содержимое нового модального окна */
 .success-modal-content {
   background-color: white;
   padding: 20px;
   border-radius: 10px;
-  text-align: center;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  animation: fadeInModal 0.5s ease-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .checkmark-circle {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background-color: #28a745;
-  position: relative;
+  background-color: #4caf50;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
+  position: relative;
 }
 
 .checkmark {
-  width: 40px;
-  height: 80px;
-  border-right: 5px solid white;
-  border-bottom: 5px solid white;
-  transform: rotate(45deg);
-  position: absolute;
-  top: 20px;
-  left: 30px;
-  animation: drawCheckmark 0.8s ease-out forwards;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: solid 5px white;
+  border-top: none;
+  border-right: none;
+  transform: rotate(-45deg);
+  animation: draw 0.5s ease-in-out forwards;
+}
+
+@keyframes draw {
+  0% {
+    stroke-dashoffset: 100;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
 }
 
 .success-message {
+  margin-top: 20px;
   font-size: 18px;
   font-weight: bold;
-  color: #28a745;
-  margin-top: 15px;
-  animation: fadeInText 0.5s ease-in-out 1s forwards;
-}
-
-/* Анимация появления модального окна */
-@keyframes fadeInModal {
-  from {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Анимация рисования галочки */
-@keyframes drawCheckmark {
-  0% {
-    width: 0;
-    height: 0;
-  }
-  50% {
-    width: 40px;
-    height: 0;
-  }
-  100% {
-    width: 40px;
-    height: 80px;
-  }
-}
-
-/* Анимация для текста */
-@keyframes fadeInText {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  text-align: center;
 }

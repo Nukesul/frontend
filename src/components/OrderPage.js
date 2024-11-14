@@ -52,7 +52,7 @@ const OrderPage = () => {
     const { name, value } = e.target;
     setDeliveryDetails({ ...deliveryDetails, [name]: value });
   };
-  
+
   const sendOrderToTelegram = async () => {
     // Проверка обязательных полей
     if (isOrderSection) {
@@ -219,19 +219,19 @@ const OrderPage = () => {
           </button>
         </div>
 
-        {isOrderSent && (
-       <div class="success-modal">
-       <div class="success-modal-content">
-         <div class="checkmark-circle">
-           <div class="checkmark"></div>
-         </div>
-         <div class="success-message">
-           Товар отправлен! Наши сотрудники свяжутся с вами.
-         </div>
-       </div>
-     </div>
-     
-        )}
+      {isOrderSent && (
+  <div className="success-modal">
+    <div className="success-modal-content">
+      <div className="checkmark-circle">
+        <div className="checkmark"></div>
+      </div>
+      <div className="success-message">
+        Товар отправлен! Наши сотрудники свяжутся с вами.
+      </div>
+    </div>
+  </div>
+)}
+
       </div>
     </div>
   );
