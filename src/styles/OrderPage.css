@@ -299,29 +299,29 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.75); /* Более премиум затемнение */
   z-index: 1000;
 }
 
 .success-modal-content {
   background-color: white;
-  padding: 30px;
-  border-radius: 15px;
+  padding: 40px;
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-  animation: scaleUpModal 0.4s ease-out;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4); /* Мягкая тень */
+  animation: fadeInUp 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 
-@keyframes scaleUpModal {
+@keyframes fadeInUp {
   0% {
-    transform: scale(0.8);
     opacity: 0;
+    transform: translateY(100px);
   }
   100% {
-    transform: scale(1);
     opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -329,55 +329,83 @@
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  background-color: #4caf50;
+  background: linear-gradient(145deg, #6fcf97, #27ae60); /* Плавный градиент */
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Элегантная тень */
 }
 
 .checkmark {
-  width: 50px;
-  height: 100px;
-  border: solid white;
-  border-width: 0 8px 8px 0;
-  transform: rotate(45deg);
-  position: absolute;
-  top: 20%;
-  left: 25%;
-  animation: drawCheckmark 1s ease forwards;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: white;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Эффект 'выпрыгивания' */
 }
 
-@keyframes drawCheckmark {
+.checkmark-icon {
+  width: 30px;
+  height: 30px;
+  border: solid #27ae60;
+  border-width: 0 6px 6px 0;
+  transform: rotate(45deg);
+  opacity: 0;
+  animation: drawCheck 0.5s 0.3s ease forwards;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes drawCheck {
   0% {
     width: 0;
     height: 0;
+    opacity: 0;
   }
   50% {
-    width: 50px;
-    height: 0;
+    width: 0;
+    height: 30px;
+    opacity: 1;
   }
   100% {
-    width: 50px;
-    height: 100px;
+    width: 30px;
+    height: 30px;
   }
 }
 
 .success-message {
   margin-top: 20px;
-  font-size: 18px;
-  font-weight: bold;
-  text-align: center;
-  animation: fadeInMessage 2s forwards;
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  animation: fadeInText 1s ease forwards;
   opacity: 0;
 }
 
-@keyframes fadeInMessage {
+@keyframes fadeInText {
   0% {
     opacity: 0;
+    transform: translateY(20px);
   }
   100% {
     opacity: 1;
+    transform: translateY(0);
   }
 }
