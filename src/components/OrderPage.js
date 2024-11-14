@@ -84,7 +84,7 @@ const OrderPage = () => {
         setTimeout(() => {
           setIsOrderSent(false);
           navigate("/");
-        }, 2000);
+        }, 4000);
       } else {
         alert('Ошибка при отправке заказа.');
       }
