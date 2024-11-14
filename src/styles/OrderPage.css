@@ -288,12 +288,37 @@
     font-size: 1.4rem; /* Увеличиваем итоговую цену */
   }
 }
-.success-animation {
+/* -------------------------------------- */
+/* Стили для нового модального окна */
+.success-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Появление модального окна */
+.success-modal.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Содержимое нового модального окна */
+.success-modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  animation: fadeInModal 0.5s ease-out;
 }
 
 .checkmark-circle {
@@ -305,7 +330,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: circleFadeIn 0.6s ease-out;
+  margin: 0 auto;
 }
 
 .checkmark {
@@ -316,7 +341,7 @@
   transform: rotate(45deg);
   position: absolute;
   top: 20px;
-  left: 35px;
+  left: 30px;
   animation: drawCheckmark 0.8s ease-out forwards;
 }
 
@@ -328,15 +353,15 @@
   animation: fadeInText 0.5s ease-in-out 1s forwards;
 }
 
-/* Анимация появления круга */
-@keyframes circleFadeIn {
+/* Анимация появления модального окна */
+@keyframes fadeInModal {
   from {
-    transform: scale(0);
     opacity: 0;
+    transform: scale(0.8);
   }
   to {
-    transform: scale(1);
     opacity: 1;
+    transform: scale(1);
   }
 }
 

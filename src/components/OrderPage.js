@@ -52,20 +52,32 @@ const OrderPage = () => {
     const { name, value } = e.target;
     setDeliveryDetails({ ...deliveryDetails, [name]: value });
   };
-
-  // Функция для отправки данных заказа в Telegram
+  
   const sendOrderToTelegram = async () => {
+    // Проверка обязательных полей
+    if (isOrderSection) {
+      if (!orderDetails.name || !orderDetails.phone) {
+        alert("Пожалуйста, заполните все обязательные поля (Имя и Телефон).");
+        return;
+      }
+    } else {
+      if (!deliveryDetails.name || !deliveryDetails.phone || !deliveryDetails.address) {
+        alert("Пожалуйста, заполните все обязательные поля (Имя, Телефон и Адрес).");
+        return;
+      }
+    }
+  
     try {
       const queryParams = new URLSearchParams({
         orderDetails: JSON.stringify(orderDetails),
         deliveryDetails: JSON.stringify(deliveryDetails),
         cartItems: JSON.stringify(cartItems),
       });
-
+  
       const response = await fetch(`https://nukesul-backend-1bde.twc1.net/api/send-order?${queryParams.toString()}`, {
         method: 'GET',
       });
-
+  
       if (response.ok) {
         setIsOrderSent(true);
         setCartItems([]);
@@ -81,7 +93,7 @@ const OrderPage = () => {
       alert('Ошибка при отправке заказа.');
     }
   };
-
+  
   return (
     <div className="order-page">
       <div className="button-group">
@@ -208,15 +220,17 @@ const OrderPage = () => {
         </div>
 
         {isOrderSent && (
-          <div class="success-animation">
-          <div class="checkmark-circle">
-            <div class="checkmark"></div>
-          </div>
-          <div class="success-message">
-            Товар отправлен! Наши сотрудники свяжутся с вами.
-          </div>
-        </div>
-        
+       <div class="success-modal">
+       <div class="success-modal-content">
+         <div class="checkmark-circle">
+           <div class="checkmark"></div>
+         </div>
+         <div class="success-message">
+           Товар отправлен! Наши сотрудники свяжутся с вами.
+         </div>
+       </div>
+     </div>
+     
         )}
       </div>
     </div>
