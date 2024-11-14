@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Loader.css';
+import logo_site from '../../../public/logo_site.png'; // Импорт логотипа
 
 const Loader = () => {
     const [loading, setLoading] = useState(true);
@@ -27,9 +28,7 @@ const Loader = () => {
     return (
         <div className={`custom-loader ${fadeOut ? 'custom-fade-out' : ''}`}>
             <div className="custom-loader-content">
-                <div className="custom-circle"></div>
-                <div className="custom-circle"></div>
-                <div className="custom-circle"></div>
+                <img src={logo_site} alt="Логотип сайта" />
                 <h2>Загрузка, пожалуйста, подождите...</h2>
             </div>
         </div>
