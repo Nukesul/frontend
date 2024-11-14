@@ -498,41 +498,54 @@
   .menu-products {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px; /* Увеличиваем расстояние между элементами */
   }
 
   .menu-product {
-    max-width: 99%;
+    display: flex; /* Делаем элементы на одной строке для лучшего выравнивания */
     flex-direction: row;
     align-items: center;
+    gap: 15px; /* Добавляем отступы между картинкой и текстом */
+    max-width: 100%;
   }
 
   .menu-product-image {
     width: 120px;
     height: auto;
+    object-fit: cover; /* Обеспечивает, чтобы картинка не искажалась */
   }
 
   .menu-product-info {
     flex: 1;
-    padding: 8px;
+    padding: 10px;
   }
-  .menu-product-title{
-    font-size: 17px;
+
+  .menu-product-title {
+    font-size: 22px; /* Увеличиваем размер заголовка для выделения */
+    font-weight: bold; /* Делаем заголовок жирным */
+    margin-bottom: 8px; /* Отступ снизу для разделения */
+    color: #333; /* Делаем цвет чуть темнее для лучшего контраста */
   }
 
   .menu-product-price,
   .menu-product-description {
-    font-size: 14px;
+    font-size: 15px; /* Немного увеличиваем шрифт для лучшего восприятия */
+    margin-bottom: 5px; /* Добавляем отступы между строками */
   }
 
   .menu-add-to-cart {
-    padding: 8px;
-    font-size: 12px;
+    padding: 10px;
+    font-size: 14px; /* Увеличиваем размер кнопки */
   }
 
   .quantity-button {
-    padding: 4px 8px;
-    font-size: 14px;
+    padding: 6px 12px;
+    font-size: 15px; /* Увеличиваем кнопки */
+  }
+
+  .menu-category-title {
+    font-size: 18px; /* Уменьшаем размер заголовка на мобильных */
+    margin-bottom: 15px; /* Добавляем отступ снизу */
   }
 
   .modal {
@@ -543,15 +556,5 @@
   }
   .modal-content img {
     width: 60%; /* Ширина изображения на мобильных */
-  }
-
-  .menu-product-title,
-  .menu-product-description,
-  .menu-product-price {
-    font-size: 16px; /* Уменьшенный размер шрифта для мобильных */
-  }
-
-  .menu-category-title {
-    font-size: large; /* Уменьшаем размер заголовка на мобильных */
   }
 }
