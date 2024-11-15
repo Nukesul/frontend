@@ -23,6 +23,7 @@ const Footer = () => {
         <div className="footer-contact">
           <h3>Контакты</h3>
           <p>Телефон: <a href="tel:+996998064064">+996 • 0 (998) 064-064</a></p>
+          <p>Email: <a href="mailto:Beksultan2001t@gmail.com">Beksultan2001t@gmail.com</a></p>
         </div>
         <div className="footer-social">
           <h3>Мы в социальных сетях</h3>
