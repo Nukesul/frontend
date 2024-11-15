@@ -53,7 +53,7 @@ const Nav = () => {
           <li>
             <div className="delivery-details">
               <p className="info-heading">🚚 Бесплатная доставка при заказе от 1200 сом в пределах 3 км 🎉</p>
-              <p className="rating-info">🌟 25 мин • 4,43⭐</p>
+              <p className="rating-info">🌟 25 мин • 4,87⭐</p>
             </div>
           </li>
           <li className="divider"></li>
@@ -72,8 +72,8 @@ const Nav = () => {
           <ul className="navbar-links">
             <li>
               <div className="delivery-details">
-                <p className="info-heading">🚗 Доставка к вашему порогу!</p>
-                <p className="rating-info">🌟 40 мин • 4,43⭐</p>
+                <p className="info-heading">🚚 Бесплатная доставка при заказе от 1200 сом в пределах 3 км 🎉</p>
+                <p className="rating-info">🌟 25 мин • 4,87⭐</p>
               </div>
             </li>
             <li className="divider"></li>
