@@ -101,7 +101,7 @@ const OrderPage = () => {
           Доставка
         </button>
         <button className="button_buy" onClick={() => setIsOrderSection(true)}>
-          С сабой
+          С собой
         </button>
       
       </div>
@@ -137,7 +137,7 @@ const OrderPage = () => {
         <h3 className="total-price">Итого: {calculateTotal()} сом</h3>
 
         <h2>
-          {isOrderSection ? "С сабой" : "Доставка"}
+          {isOrderSection ? "С собой" : "Доставка"}
         </h2>
         {isOrderSection ? (
           <>
