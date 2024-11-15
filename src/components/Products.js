@@ -161,14 +161,14 @@ function Products() {
               </div>
             </div>
           ))}
-        <div className="halal_box">
+      </div>
+      <div className="halal_box">
           <img className="halal_img" src={halal} />
           <h1>
             Без свинины
             <p> Мы готовим из цыпленка и говядины</p>
           </h1>
         </div>
-      </div>
       <div className="option__container">
         <div className="option__name">
           <ul>
