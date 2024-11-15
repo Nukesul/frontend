@@ -52,14 +52,14 @@ const Nav = () => {
           <li className="divider"></li>
           <li>
             <div className="delivery-details">
-              <p className="info-heading">🚗 Доставка к вашему порогу!</p>
+              <p className="info-heading">🚚 Бесплатная доставка при заказе от 1200 сом в пределах 3 км 🎉</p>
               <p className="rating-info">🌟 25 мин • 4,43⭐</p>
             </div>
           </li>
           <li className="divider"></li>
           <li>
             <div className="contact-details">
-              <p className="contact-number">📞 +996 • 0 (998) 064-064</p>
+              <p className="contact-number">📞 +996 • (998) 064-064</p>
               <p className="contact-label">Звонок для заказа</p>
             </div>
           </li>
