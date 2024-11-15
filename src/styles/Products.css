@@ -560,3 +560,26 @@
     border-radius: 10px;
   }
 }
+.halal_box{
+  width: 290px;
+  position: relative;
+  color: rgb(26, 26, 26);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 15px;
+  border: 0.5px solid rgb(164, 164, 164);
+}
+.halal_img{
+  width: 70px;
+  height: 70px;
+}
+.halal_box h1{
+    font-size: 15px;
+}
+.halal_box h1 p{
+  font-size: 10px;
+}

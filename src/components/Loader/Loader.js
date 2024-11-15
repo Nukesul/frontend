@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import './Loader.css';
-import logo_site from '../../../public/logo_site.png'; // Импорт логотипа
+import logo_site from './logo.png';
 
 const Loader = () => {
     const [loading, setLoading] = useState(true);
     const [fadeOut, setFadeOut] = useState(false);
 
     useEffect(() => {
-        const timer = setTimeout(() => {
-            setFadeOut(true); // Начинаем анимацию исчезновения
-        }, 5000);
+        const fadeTimer = setTimeout(() => {
+            setFadeOut(true);
+        }, 2000); // Задержка исчезновения
 
         const endTimer = setTimeout(() => {
-            setLoading(false); // Убираем загрузочный экран
-        }, 6000); // Дополнительная секунда для плавного исчезновения
+            setLoading(false);
+        }, 2500); // Полная задержка 2.5 секунд
 
         return () => {
-            clearTimeout(timer);
+            clearTimeout(fadeTimer);
             clearTimeout(endTimer);
         };
     }, []);
@@ -26,9 +26,11 @@ const Loader = () => {
     }
 
     return (
-        <div className={`custom-loader ${fadeOut ? 'custom-fade-out' : ''}`}>
-            <div className="custom-loader-content">
-                <img src={logo_site} alt="Логотип сайта" />
+        <div className={`cafe-site-loader ${fadeOut ? 'cafe-site-fade-out' : ''}`}>
+            <div className="cafe-site-loader-content">
+                <div className="cafe-site-loader-spinner">
+                    <img src={logo_site} alt="Логотип сайта" />
+                </div>
                 <h2>Загрузка, пожалуйста, подождите...</h2>
             </div>
         </div>

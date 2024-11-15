@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Cart from "./Cart"; // Импортируем компонент Cart
 import "../styles/Products.css";
-
+import halal from "../images/halal_png.png";
 function Products() {
   const [products, setProducts] = useState([]);
   const [menuItems, setMenuItems] = useState({});
@@ -132,7 +132,7 @@ function Products() {
 
   return (
     <div className="menu-wrapper">
-        <h2 className="Mark_Shop">Часто продаваемые товары</h2>
+      <h2 className="Mark_Shop">Часто продаваемые товары</h2>
 
       <div className="best-sellers">
         {products
@@ -161,23 +161,37 @@ function Products() {
               </div>
             </div>
           ))}
+        <div className="halal_box">
+          <img className="halal_img" src={halal} />
+          <h1>
+            Без свинины
+            <p> Мы готовим из цыпленка и говядины</p>
+          </h1>
+        </div>
       </div>
-        
-      <div className='option__container'>
-        <div className='option__name'>
+      <div className="option__container">
+        <div className="option__name">
           <ul>
-            {Object.keys(menuItems).map((category, index) => (
-              category !== 'Часто продаваемые товары' && ( // Исключаем "Часто продаваемые товары"
-                <li key={category}> {/* Уникальный ключ на основе имени категории */}
-                  <a href="#" onClick={(e) => {
-                    e.preventDefault();
-                    categories.current[index].current.scrollIntoView({ behavior: 'smooth' });
-                  }}>
-                    {category}
-                  </a>
-                </li>
-              )
-            ))}
+            {Object.keys(menuItems).map(
+              (category, index) =>
+                category !== "Часто продаваемые товары" && ( // Исключаем "Часто продаваемые товары"
+                  <li key={category}>
+                    {" "}
+                    {/* Уникальный ключ на основе имени категории */}
+                    <a
+                      href="#"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        categories.current[index].current.scrollIntoView({
+                          behavior: "smooth",
+                        });
+                      }}
+                    >
+                      {category}
+                    </a>
+                  </li>
+                )
+            )}
           </ul>
         </div>
       </div>
