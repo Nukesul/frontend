@@ -258,13 +258,12 @@
   text-decoration: none;
   color: #333;
   font-weight: bold;
-  padding: 8px 20px;
+  padding: 8px 15px;
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
   background: linear-gradient(90deg, #ff550056, #ffffff,#ff550056);
   background-size: 400% 400%;
-  animation: animate_Prd 30s linear infinite;
+  animation: animate_Prd 15s linear infinite;
 }
 
 @keyframes animate_Prd {
