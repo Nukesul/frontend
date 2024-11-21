@@ -261,23 +261,20 @@
   padding: 8px 15px;
   border-radius: 8px;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  background: linear-gradient(90deg, #ff550056, #ffffff,#ff550056);
+  background: linear-gradient(90deg, #ff621456, #ffffff,#ff550056);
   background-size: 400% 400%;
-  animation: animate_Prd 15s linear infinite;
+  animation: animate_Prd 10s linear infinite;
 }
 
 @keyframes animate_Prd {
   0% {
     background-position: 0% 50%;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
   50% {
     background-position: 100% 50%;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   }
   100% {
     background-position: 0% 50%;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
 }
 
