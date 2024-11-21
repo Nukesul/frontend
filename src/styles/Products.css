@@ -233,7 +233,7 @@
   content: "";
   position: absolute;
   height: 100%;
-  box-shadow: -10px 0 5px 15px white;
+  box-shadow: -5px 0 5px 15px white;
   right: 0;
   top: 0;
 }
@@ -242,14 +242,14 @@
   content: "";
   position: absolute;
   height: 100%;
-  box-shadow: 10px 0 5px 15px white;
+  box-shadow: 5px 0 5px 15px white;
   left: 0;
   top: 0;
 }
 
 .option__name li {
   list-style: none;
-  margin-right: 15px;
+  margin-right: 10px;
   display: inline-block;
   height: 100%;
 }
@@ -258,12 +258,12 @@
   text-decoration: none;
   color: #d22700;
   font-weight: bold;
-  padding: 8px 15px;
+  padding: 8px 13px;
   border-radius: 8px;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
   background: linear-gradient(90deg,#ff3e281f, #ffffff,#ff3e281f);
   background-size: 400% 400%;
-  animation: animate_Prd 10s linear infinite;
+  animation: animate_Prd 3s linear infinite;
 }
 
 @keyframes animate_Prd {
