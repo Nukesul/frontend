@@ -261,7 +261,7 @@
   padding: 8px 15px;
   border-radius: 8px;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  background: linear-gradient(90deg,#ff3e281f #ffffff,#ff3e281f);
+  background: linear-gradient(90deg,#ff3e281f, #ffffff,#ff3e281f);
   background-size: 400% 400%;
   animation: animate_Prd 10s linear infinite;
 }
