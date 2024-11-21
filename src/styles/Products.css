@@ -380,18 +380,20 @@
 
 .menu-product-description {
   font-size: 16px; /* Размер описания */
-  color: #ccc; /* Цвет текста описания */
+  color: #d0d0d0; /* Цвет текста описания */
   margin: 10px 0; /* Отступы */
 }
 
 .menu-product-price {
-  font-size: 20px; /* Увеличенный размер цены */
-  color: #ff9f43; /* Цвет для выделения цены */
+  font-size: 18px; /* Увеличенный размер цены */
+  color: #d21500; /* Цвет для выделения цены */
   margin: 10px 0; /* Отступы */
+  border-radius: 10px;
+  background-color: #ff3e2830;
 }
 
 .menu-product-title {
-  font-size: xx-large;
+  font-size: x-large;
   font-weight: bold;
   margin: 0;
   white-space: nowrap;
@@ -413,12 +415,6 @@
   font-weight: bold;
 }
 
-.menu-product-price {
-  font-size: 16px;
-  font-weight: bold;
-  color: #ff5900;
-  margin: 0;
-}
 
 .menu-product-description {
   font-size: 14px;
