@@ -262,7 +262,7 @@
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  background: linear-gradient(90deg, #ff5500, #ffffff, #ff5500);
+  background: linear-gradient(90deg, #ff550056, #ffffff,#ff550056);
   background-size: 400% 400%;
   animation: animate_Prd 30s linear infinite;
 }
