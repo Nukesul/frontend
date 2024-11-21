@@ -29,9 +29,9 @@ const Nav = () => {
           </div>
 
           <div className="navbar-right">
-          {!isBurgerMenuOpen && (
+          {/* {isBurgerMenuOpen && (
         <button className="Regist_btn"></button>
-      )}
+      )} */}
             <div className="hamburger-menu" onClick={toggleBurgerMenu}>
               {isBurgerMenuOpen ? (
                 <FaTimes className="hamburger-icon" />
