@@ -258,10 +258,25 @@
   text-decoration: none;
   color: #000;
   padding: 7px 15px;
-  background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease;
+  background: linear-gradient(90deg, #ffffff, #ff5500, #ffffff);
+  background-size: 400% 400%;
+  animation: animate_Prd 25s linear infinite;
+}
+@keyframes animate_Prd {
+  0% {
+    box-shadow: 0 0 0 0 rgba(228, 198, 25, 0);
+    background-position: 0% 100%;
+  }
+  50% {
+    background-position: 1000% 100%;
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(228, 198, 25, 0);
+    background-position: 0% 100%;
+  }
 }
 
 .option__name li a:hover {
