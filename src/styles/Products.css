@@ -379,12 +379,14 @@
 }
 
 .menu-product-description {
-  font-size: 16px; /* Размер описания */
+  font-size: 15px; /* Размер описания */
   color: #d0d0d0; /* Цвет текста описания */
   margin: 10px 0; /* Отступы */
 }
 
 .menu-product-price {
+  display: inline-block;
+  padding: 5px;
   font-size: 18px; /* Увеличенный размер цены */
   color: #d21500; /* Цвет для выделения цены */
   margin: 10px 0; /* Отступы */
@@ -393,7 +395,7 @@
 }
 
 .menu-product-title {
-  font-size: x-large;
+  font-size: large;
   font-weight: bold;
   margin: 0;
   white-space: nowrap;
