@@ -256,12 +256,12 @@
 
 .option__name li a {
   text-decoration: none;
-  color: #d23100;
+  color: #ff8800;
   font-weight: bold;
   padding: 8px 13px;
   border-radius: 8px;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  background: linear-gradient(90deg,#ff6c281f, #ffffff,#ff6c281f);
+  background: linear-gradient(90deg,#ffa2281f, #ffffff,#ffa2281f);
   background-size: 400% 400%;
   animation: animate_Prd 3s linear infinite;
 }
