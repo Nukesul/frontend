@@ -171,26 +171,25 @@ function AdminPanel() {
         <div>
           <label>Категория:</label>
           <select value={category} onChange={handleCategoryChange} required>
-          <option value="">Выберите категорию</option>
-<option value="Пиццы">🍕 Пиццы</option>
-<option value="Бургеры">🍔 Бургеры</option>
-<option value="Часто продаваемые товары">🔥 Часто продаваемые товары</option>
-<option value="Комбо">🍽️ Комбо</option>
-<option value="Сет">🍣 Сет</option>
-<option value="Суши">🍣 Суши</option>
-<option value="Десерты">🍰 Десерты</option>
-<option value="Закуски">🍟 Закуски</option>
-<option value="Супы">🍲 Супы</option>
-<option value="Вок">🍜 Вок</option>
-<option value="Завтраки">🍳 Завтраки</option>
-<option value="Шаурмы">🌯 Шаурмы</option>
-<option value="Салаты">🥗 Салаты</option>
-<option value="Соусы">🍯 Соусы</option>
-<option value="Напитки">🥤 Напитки</option>
-<option value="Лимонады">🍋 Лимонады</option>
-<option value="Коктейлы">🍹 Коктейлы</option>
-<option value="Кофе">☕ Кофе</option>
-
+            <option value="">Выберите категорию</option>
+            <option value="Пиццы">Пиццы</option>
+            <option value="Бургеры">Бургеры</option>
+            <option value="Часто продаваемые товары">Часто продаваемые товары</option>
+            <option value="Комбо">Комбо</option>
+            <option value="Сет">Сет</option>
+            <option value="Суши">Суши</option>
+            <option value="Десерты">Десерты</option>
+            <option value="Закуски">Закуски</option>
+            <option value="Супы">Супы</option>
+            <option value="Вок">Вок</option>
+            <option value="Завтраки">Завтраки</option>
+            <option value="Шаурмы">Шаурмы</option>
+            <option value="Салаты">Салаты</option>
+            <option value="Соусы">Соусы</option>
+            <option value="Напитки">Напитки</option>
+            <option value="Лимонады">Лимонады</option>
+            <option value="Коктейлы">Коктейлы</option>
+            <option value="Кофе">Кофе</option>
           </select>
         </div>
 
@@ -198,26 +197,21 @@ function AdminPanel() {
           <div>
             <label>Подкатегория:</label>
             <select value={subCategory} onChange={handleSubCategoryChange} required>
-            <option value="">Выберите категорию</option>
-<option value="Пиццы">🍕 Пиццы</option>
-<option value="Бургеры">🍔 Бургеры</option>
-<option value="Часто продаваемые товары">🔥 Часто продаваемые товары</option>
-<option value="Комбо">🍽️ Комбо</option>
-<option value="Сет">🍣 Сет</option>
-<option value="Суши">🍣 Суши</option>
-<option value="Десерты">🍰 Десерты</option>
-<option value="Закуски">🍟 Закуски</option>
-<option value="Супы">🍲 Супы</option>
-<option value="Вок">🍜 Вок</option>
-<option value="Завтраки">🍳 Завтраки</option>
-<option value="Шаурмы">🌯 Шаурмы</option>
-<option value="Салаты">🥗 Салаты</option>
-<option value="Соусы">🍯 Соусы</option>
-<option value="Напитки">🥤 Напитки</option>
-<option value="Лимонады">🍋 Лимонады</option>
-<option value="Коктейлы">🍹 Коктейлы</option>
-<option value="Кофе">☕ Кофе</option>
-
+              <option value="">Выберите подкатегорию</option>
+              <option value="Пиццы">Пиццы</option>
+              <option value="Комбо">Комбо</option>
+              <option value="Сет">Сет</option>
+              <option value="Бургеры">Бургеры</option>
+              <option value="Суши">Суши</option>
+              <option value="Десерты">Десерты</option>
+              <option value="Закуски">Закуски</option>
+              <option value="Супы">Супы</option>
+              <option value="Вок">Вок</option>
+              <option value="Завтраки">Завтраки</option>
+              <option value="Шаурмы">Шаурмы</option>
+              <option value="Салаты">Салаты</option>
+              <option value="Напитки">Напитки</option>
+              <option value="Кофе">Кофе</option>
             </select>
           </div>
         )}
@@ -289,24 +283,25 @@ function AdminPanel() {
       </form>
 
       <div className="products-section">
-        {renderProductsByCategory('Пиццы')}
-        {renderProductsByCategory('Часто продаваемые товары')}
-        {renderProductsByCategory('Комбо')}
-        {renderProductsByCategory('Сет')}
-        {renderProductsByCategory('Бургеры')}
-        {renderProductsByCategory('Суши')}
-        {renderProductsByCategory('Десерты')}
-        {renderProductsByCategory('Закуски')}
-        {renderProductsByCategory('Супы')}
-        {renderProductsByCategory('Вок')}
-        {renderProductsByCategory('Завтраки')}
-        {renderProductsByCategory('Шаурмы')}
-        {renderProductsByCategory('Салаты')}
-        {renderProductsByCategory('Соусы')}
-        {renderProductsByCategory('Напитки')}
-        {renderProductsByCategory('Лимонады')}
-        {renderProductsByCategory('Коктейлы')}
-        {renderProductsByCategory('Кофе')}
+      {renderProductsByCategory('Пиццы', '🍕')}
+{renderProductsByCategory('Часто продаваемые товары', '🔥')}
+{renderProductsByCategory('Комбо', '🍽️')}
+{renderProductsByCategory('Сет', '🍣')}
+{renderProductsByCategory('Бургеры', '🍔')}
+{renderProductsByCategory('Суши', '🍣')}
+{renderProductsByCategory('Десерты', '🍰')}
+{renderProductsByCategory('Закуски', '🍟')}
+{renderProductsByCategory('Супы', '🍲')}
+{renderProductsByCategory('Вок', '🍜')}
+{renderProductsByCategory('Завтраки', '🍳')}
+{renderProductsByCategory('Шаурмы', '🌯')}
+{renderProductsByCategory('Салаты', '🥗')}
+{renderProductsByCategory('Соусы', '🍯')}
+{renderProductsByCategory('Напитки', '🥤')}
+{renderProductsByCategory('Лимонады', '🍋')}
+{renderProductsByCategory('Коктейлы', '🍹')}
+{renderProductsByCategory('Кофе', '☕')}
+
       </div>
     </div>
   );
