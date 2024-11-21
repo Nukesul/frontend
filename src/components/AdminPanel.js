@@ -292,7 +292,7 @@ function AdminPanel() {
         {renderProductsByCategory('Суши')}
         {renderProductsByCategory('Десерты')}
         {renderProductsByCategory('Закуски')}
-        {renderProductsByCategory('Супы😢')}
+        {renderProductsByCategory('Супы')}
         {renderProductsByCategory('Вок')}
         {renderProductsByCategory('Завтраки')}
         {renderProductsByCategory('Шаурмы')}
