@@ -12,8 +12,7 @@ function AdminPanel() {
   const [priceLarge, setPriceLarge] = useState('');
   const [productsPrice, setProductsPrice] = useState('');
   const [products, setProducts] = useState([]);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
+  const [isSubmitting, setIsSubmitting] = useState(false); 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -59,7 +58,7 @@ function AdminPanel() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
+    setIsSubmitting(true); // Дизейблим кнопку после нажатия
 
     const formData = new FormData();
     if (image) formData.append('image', image);
@@ -76,7 +75,7 @@ function AdminPanel() {
       formData.append('price', parseFloat(productsPrice));
     } else {
       alert('Укажите цену для товара!');
-      setIsSubmitting(false);
+      setIsSubmitting(false); // Включаем кнопку снова в случае ошибки
       return;
     }
 
@@ -100,7 +99,7 @@ function AdminPanel() {
       alert('Произошла ошибка при добавлении продукта.');
     }
 
-    setIsSubmitting(false);
+    setIsSubmitting(false); // Снова активируем кнопку после завершения
   };
 
   const handleDelete = async (productId) => {
@@ -123,14 +122,14 @@ function AdminPanel() {
     }
   };
 
-  const renderProductsByCategory = (categoryName, emoji) => {
+  const renderProductsByCategory = (categoryName) => {
     const filteredProducts = Array.isArray(products)
       ? products.filter((product) => product.category === categoryName)
       : [];
 
     return (
       <div className="category-section">
-        <h2>{emoji} {categoryName}</h2>
+        <h2>{categoryName}</h2>
         <div className="product-cards">
           {filteredProducts.length > 0 ? (
             filteredProducts.map((product) => (
@@ -173,24 +172,25 @@ function AdminPanel() {
           <label>Категория:</label>
           <select value={category} onChange={handleCategoryChange} required>
             <option value="">Выберите категорию</option>
-            <option value="Пиццы">🍕 Пиццы</option>
-            <option value="Бургеры">🍔 Бургеры</option>
-            <option value="Часто продаваемые товары">🔥 Часто продаваемые товары</option>
-            <option value="Комбо">🍽️ Комбо</option>
-            <option value="Сет">🍱 Сет</option>
-            <option value="Суши">🍣 Суши</option>
-            <option value="Десерты">🍰 Десерты</option>
-            <option value="Закуски">🍟 Закуски</option>
-            <option value="Супы">🍲 Супы</option>
-            <option value="Вок">🍜 Вок</option>
-            <option value="Завтраки">🍳 Завтраки</option>
-            <option value="Шаурмы">🌯 Шаурмы</option>
-            <option value="Салаты">🥗 Салаты</option>
-            <option value="Соусы">🍯 Соусы</option>
-            <option value="Напитки">🥤 Напитки</option>
-            <option value="Лимонады">🍋 Лимонады</option>
-            <option value="Коктейлы">🍹 Коктейлы</option>
-            <option value="Кофе">☕ Кофе</option>
+            <option value="Пиццы">Пиццы</option>
+            <option value="Бургеры">Бургеры</option>
+            <option value="Часто продаваемые товары">Часто продаваемые товары</option>
+            <option value="Комбо">Комбо</option>
+            <option value="Сет">Сет</option>
+            <option value="Суши">Суши</option>
+            <option value="Десерты">Десерты</option>
+            <option value="Закуски">Закуски</option>
+            <option value="Супы">Супы</option>
+            <option value="Вок">Вок</option>
+            <option value="Завтраки">Завтраки</option>
+            <option value="Шаурмы">Шаурмы</option>
+            <option value="Салаты">Салаты</option>
+            <option value="Соусы">Соусы</option>
+            <option value="Напитки">Напитки</option>
+            <option value="Лимонады">Лимонады</option>
+            <option value="Коктейлы">Коктейлы</option>
+
+            <option value="Кофе">Кофе</option>
           </select>
         </div>
 
@@ -199,123 +199,110 @@ function AdminPanel() {
             <label>Подкатегория:</label>
             <select value={subCategory} onChange={handleSubCategoryChange} required>
               <option value="">Выберите подкатегорию</option>
-              <option value="Пиццы">🍕 Пиццы</option>
-              <option value="Комбо">🍽️ Комбо</option>
-              <option value="Сет">🍱 Сет</option>
-              <option value="Бургеры">🍔 Бургеры</option>
-              <option value="Суши">🍣 Суши</option>
-              <option value="Десерты">🍰 Десерты</option>
-              <option value="Закуски">🍟 Закуски</option>
-              <option value="Супы">🍲 Супы</option>
-              <option value="Вок">🍜 Вок</option>
-              <option value="Завтраки">🍳 Завтраки</option>
-              <option value="Шаурмы">🌯 Шаурмы</option>
-              <option value="Салаты">🥗 Салаты</option>
-              <option value="Соусы">🍯 Соусы</option>
-              <option value="Напитки">🥤 Напитки</option>
-              <option value="Лимонады">🍋 Лимонады</option>
-              <option value="Коктейлы">🍹 Коктейлы</option>
-              <option value="Кофе">☕ Кофе</option>
+              <option value="Пиццы">Пиццы</option>
+              <option value="Комбо">Комбо</option>
+              <option value="Сет">Сет</option>
+              <option value="Бургеры">Бургеры</option>
+              <option value="Суши">Суши</option>
+              <option value="Десерты">Десерты</option>
+              <option value="Закуски">Закуски</option>
+              <option value="Супы">Супы</option>
+              <option value="Вок">Вок</option>
+              <option value="Завтраки">Завтраки</option>
+              <option value="Шаурмы">Шаурмы</option>
+              <option value="Салаты">Салаты</option>
+              <option value="Напитки">Напитки</option>
+              <option value="Кофе">Кофе</option>
             </select>
           </div>
         )}
 
+        {category && (
+          <>
+            {category === 'Пиццы' || subCategory === 'Пиццы' ? (
+              <>
+                <div>
+                  <label>Цена (Маленькая):</label>
+                  <input
+                    type="text"
+                    value={priceSmall}
+                    onChange={(e) => setPriceSmall(e.target.value)}
+                    required
+                  />
+                </div>
+                <div>
+                  <label>Цена (Средняя):</label>
+                  <input
+                    type="text"
+                    value={priceMedium}
+                    onChange={(e) => setPriceMedium(e.target.value)}
+                    required
+                  />
+                </div>
+                <div>
+                  <label>Цена (Большая):</label>
+                  <input
+                    type="text"
+                    value={priceLarge}
+                    onChange={(e) => setPriceLarge(e.target.value)}
+                    required
+                  />
+                </div>
+              </>
+            ) : (
+              <div>
+                <label>Цена:</label>
+                <input
+                  type="text"
+                  value={productsPrice}
+                  onChange={(e) => setProductsPrice(e.target.value)}
+                  required
+                />
+              </div>
+            )}
+          </>
+        )}
+
         <div>
           <label>Название:</label>
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
+          <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
         </div>
 
         <div>
           <label>Описание:</label>
-          <textarea
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            required
-          />
+          <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
         </div>
 
         <div>
           <label>Изображение:</label>
-          <input
-            type="file"
-            onChange={handleImageChange}
-            accept="image/*"
-            required
-          />
+          <input type="file" onChange={handleImageChange} />
         </div>
 
-        {(category === 'Пиццы' || subCategory === 'Пиццы') && (
-          <>
-            <div>
-              <label>Цена маленькая:</label>
-              <input
-                type="number"
-                value={priceSmall}
-                onChange={(e) => setPriceSmall(e.target.value)}
-              />
-            </div>
-            <div>
-              <label>Цена средняя:</label>
-              <input
-                type="number"
-                value={priceMedium}
-                onChange={(e) => setPriceMedium(e.target.value)}
-              />
-            </div>
-            <div>
-              <label>Цена большая:</label>
-              <input
-                type="number"
-                value={priceLarge}
-                onChange={(e) => setPriceLarge(e.target.value)}
-              />
-            </div>
-          </>
-        )}
-
-        {category !== 'Пиццы' && (
-          <div>
-            <label>Цена товара:</label>
-            <input
-              type="number"
-              value={productsPrice}
-              onChange={(e) => setProductsPrice(e.target.value)}
-              required
-            />
-          </div>
-        )}
-
-        <div>
-          <button type="submit" disabled={isSubmitting}>
-            {isSubmitting ? 'Отправка...' : 'Добавить продукт'}
-          </button>
-        </div>
+        <button type="submit" disabled={isSubmitting}>
+          {isSubmitting ? 'Добавление...' : 'Добавить продукт'}
+        </button>
       </form>
 
-      <div className="admin-products">
-        {renderProductsByCategory('Пиццы', '🍕')}
-        {renderProductsByCategory('Бургеры', '🍔')}
-        {renderProductsByCategory('Часто продаваемые товары', '🔥')}
-        {renderProductsByCategory('Комбо', '🍽️')}
-        {renderProductsByCategory('Сет', '🍱')}
-        {renderProductsByCategory('Суши', '🍣')}
-        {renderProductsByCategory('Десерты', '🍰')}
-        {renderProductsByCategory('Закуски', '🍟')}
-        {renderProductsByCategory('Супы', '🍲')}
-        {renderProductsByCategory('Вок', '🍜')}
-        {renderProductsByCategory('Завтраки', '🍳')}
-        {renderProductsByCategory('Шаурмы', '🌯')}
-        {renderProductsByCategory('Салаты', '🥗')}
-        {renderProductsByCategory('Соусы', '🍯')}
-        {renderProductsByCategory('Напитки', '🥤')}
-        {renderProductsByCategory('Лимонады', '🍋')}
-        {renderProductsByCategory('Коктейлы', '🍹')}
-        {renderProductsByCategory('Кофе', '☕')}
+      <div className="products-section">
+      {renderProductsByCategory('Пиццы 🍕')}
+{renderProductsByCategory('Часто продаваемые товары 🛍️')}
+{renderProductsByCategory('Комбо 🍔🍟')}
+{renderProductsByCategory('Сет 🍣')}
+{renderProductsByCategory('Бургеры 🍔')}
+{renderProductsByCategory('Суши 🍣')}
+{renderProductsByCategory('Десерты 🍰')}
+{renderProductsByCategory('Закуски 🍽️')}
+{renderProductsByCategory('Супы 🍲')}
+{renderProductsByCategory('Вок 🍜')}
+{renderProductsByCategory('Завтраки 🍳')}
+{renderProductsByCategory('Шаурмы 🌯')}
+{renderProductsByCategory('Салаты 🥗')}
+{renderProductsByCategory('Соусы 🍶')}
+{renderProductsByCategory('Напитки 🥤')}
+{renderProductsByCategory('Лимонады 🍋')}
+{renderProductsByCategory('Коктейлы 🍸')}
+{renderProductsByCategory('Кофе ☕')}
+
       </div>
     </div>
   );
