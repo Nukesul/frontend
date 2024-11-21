@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Cart from "./Cart"; // Импортируем компонент Cart
 import "../styles/Products.css";
 import halal from "../images/halal_png.png";
+
 function Products() {
   const [products, setProducts] = useState([]);
   const [menuItems, setMenuItems] = useState({});
@@ -130,7 +131,7 @@ function Products() {
         </div>
       ));
   };
-  
+
   return (
     <div className="menu-wrapper">
       <h2 className="Mark_Shop">Часто продаваемые товары</h2>
@@ -164,12 +165,12 @@ function Products() {
           ))}
       </div>
       <div className="halal_box">
-          <img className="halal_img" src={halal} />
-          <h1>
-            Без свинины
-            <p> Мы готовим из цыпленка и говядины</p>
-          </h1>
-        </div>
+        <img className="halal_img" src={halal} />
+        <h1>
+          Без свинины
+          <p> Мы готовим из цыпленка и говядины</p>
+        </h1>
+      </div>
       <div className="option__container">
         <div className="option__name">
           <ul>
@@ -255,62 +256,40 @@ function Products() {
                 alt={selectedProduct.product.name}
                 className="modal-image"
               />
-              <div className="modal-info">
-                <h1>{selectedProduct.product.name}</h1>
-                <p>{selectedProduct.product.description}</p>
-
-                {isPizza(selectedProduct.product) && (
-                  <div className="pizza-selection">
-                    <h3>Выберите размер:</h3>
-                    <div className="pizza-sizes">
-                      <div
-                        className={`pizza-size ${
-                          pizzaSize === "small" ? "selected" : ""
-                        }`}
-                        onClick={() => setPizzaSize("small")}
-                      >
-                        Маленькая
-                      </div>
-                      <div
-                        className={`pizza-size ${
-                          pizzaSize === "medium" ? "selected" : ""
-                        }`}
-                        onClick={() => setPizzaSize("medium")}
-                      >
-                        Средняя
-                      </div>
-                      <div
-                        className={`pizza-size ${
-                          pizzaSize === "large" ? "selected" : ""
-                        }`}
-                        onClick={() => setPizzaSize("large")}
-                      >
-                        Большая
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                {errorMessage && (
-                  <div className="error-message">{errorMessage}</div> // Сообщение об ошибке
-                )}
-
-                <button className="add-to-cart" onClick={handleAddToCart}>
-                  Добавить в корзину за{" "}
-                  <span className="green-price">
-                    {isPizza(selectedProduct.product) && pizzaSize
-                      ? selectedProduct.product[`price_${pizzaSize}`]
-                      : selectedProduct.product.price}
-                  </span>{" "}
-                  Сом
-                </button>
-              </div>
+              <h2>{selectedProduct.product.name}</h2>
+              <p>{selectedProduct.product.description}</p>
+              {isPizza(selectedProduct.product) && (
+                <div className="pizza-sizes">
+                  <label>
+                    Размер:
+                    <select
+                      value={pizzaSize}
+                      onChange={(e) => setPizzaSize(e.target.value)}
+                    >
+                      <option value="">Выберите размер</option>
+                      <option value="small">Маленький</option>
+                      <option value="medium">Средний</option>
+                      <option value="large">Большой</option>
+                    </select>
+                  </label>
+                </div>
+              )}
+              {errorMessage && (
+                <div className="error-message">{errorMessage}</div>
+              )}
+              <button className="add-to-cart" onClick={handleAddToCart}>
+                Добавить в корзину
+              </button>
             </div>
           </div>
         </div>
       )}
 
-      <Cart cartItems={cartItems} onQuantityChange={handleQuantityChange} />
+      <Cart
+        cartItems={cartItems}
+        onQuantityChange={handleQuantityChange}
+        onClose={() => setCartItems([])} // Закрыть корзину
+      />
     </div>
   );
 }

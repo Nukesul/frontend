@@ -284,25 +284,24 @@ function AdminPanel() {
       </form>
 
       <div className="products-section">
-      {renderProductsByCategory('Пиццы \u{1F355}')}
-{renderProductsByCategory('Часто продаваемые товары \u{1F6CD}\u{FE0F}')}
-{renderProductsByCategory('Комбо \u{1F354}\u{1F35F}')}
-{renderProductsByCategory('Сет \u{1F363}')}
-{renderProductsByCategory('Бургеры \u{1F354}')}
-{renderProductsByCategory('Суши \u{1F363}')}
-{renderProductsByCategory('Десерты \u{1F9C1}')}
-{renderProductsByCategory('Закуски \u{1F37D}\u{FE0F}')}
-{renderProductsByCategory('Супы \u{1F30A}')}
-{renderProductsByCategory('Вок \u{1F35C}')}
-{renderProductsByCategory('Завтраки \u{1F373}')}
-{renderProductsByCategory('Шаурмы \u{1F32F}')}
-{renderProductsByCategory('Салаты \u{1F957}')}
-{renderProductsByCategory('Соусы \u{1F37B}')}
-{renderProductsByCategory('Напитки \u{1F964}')}
-{renderProductsByCategory('Лимонады \u{1F60B}')}
-{renderProductsByCategory('Коктейлы \u{1F378}')}
-{renderProductsByCategory('Кофе \u{2615}')}
-
+        {renderProductsByCategory('Пиццы')}
+        {renderProductsByCategory('Часто продаваемые товары')}
+        {renderProductsByCategory('Комбо')}
+        {renderProductsByCategory('Сет')}
+        {renderProductsByCategory('Бургеры')}
+        {renderProductsByCategory('Суши')}
+        {renderProductsByCategory('Десерты')}
+        {renderProductsByCategory('Закуски')}
+        {renderProductsByCategory('Супы')}
+        {renderProductsByCategory('Вок')}
+        {renderProductsByCategory('Завтраки')}
+        {renderProductsByCategory('Шаурмы')}
+        {renderProductsByCategory('Салаты')}
+        {renderProductsByCategory('Соусы')}
+        {renderProductsByCategory('Напитки')}
+        {renderProductsByCategory('Лимонады')}
+        {renderProductsByCategory('Коктейлы')}
+        {renderProductsByCategory('Кофе')}
       </div>
     </div>
   );
