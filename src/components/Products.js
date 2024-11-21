@@ -108,7 +108,7 @@ function Products() {
       .map((product) => (
         <div
           className="menu-product"
-          key={product.id} // Уникальный ключ
+          key={product.id}
           onClick={() => handleProductClick(product, category)}
         >
           <img
@@ -118,18 +118,19 @@ function Products() {
           />
           <div className="menu-product-info">
             <h3 className="menu-product-title">{product.name}</h3>
+            <p className="menu-product-description">
+              {product.description || "Описание не указано"}
+            </p>
             <p className="menu-product-price">
-              {/* Для пицц в меню показываем минимальную цену */}
               {isPizza(product)
                 ? `От ${product.price_small} Сом`
                 : `${product.price} Сом`}
             </p>
-            <p className="menu-product-description">{product.description}</p>
           </div>
         </div>
       ));
   };
-
+  
   return (
     <div className="menu-wrapper">
       <h2 className="Mark_Shop">Часто продаваемые товары</h2>

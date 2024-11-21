@@ -29,6 +29,9 @@ const Nav = () => {
           </div>
 
           <div className="navbar-right">
+          {!isBurgerMenuOpen && (
+        <button className="Regist_btn"></button>
+      )}
             <div className="hamburger-menu" onClick={toggleBurgerMenu}>
               {isBurgerMenuOpen ? (
                 <FaTimes className="hamburger-icon" />
@@ -65,7 +68,7 @@ const Nav = () => {
           </li>
         </ul>
       </div>
-
+   
       {/* Меню для мобильных устройств */}
       {isBurgerMenuOpen && (
         <div className="mobile-menu">
@@ -87,7 +90,7 @@ const Nav = () => {
               <Link to="/about" onClick={handleAboutClick}>О нас</Link>
             </li>
             <li>
-              <a href="tel:+996998064064">Контакты</a> {/* Телефонная ссылка для звонка */}
+              <a href="tel:+996998064064">Контакты</a> 
             </li>
           </ul>
         </div>

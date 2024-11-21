@@ -7,17 +7,17 @@ const Loader = () => {
     const [fadeOut, setFadeOut] = useState(false);
 
     useEffect(() => {
-        const fadeTimer = setTimeout(() => {
-            setFadeOut(true);
-        }, 2000); // Задержка исчезновения
-
-        const endTimer = setTimeout(() => {
-            setLoading(false);
-        }, 2500); // Полная задержка 2.5 секунд
+        // Ожидаем полной загрузки страницы
+        window.addEventListener('load', () => {
+            setFadeOut(true); // Начинаем исчезновение лоадера
+            setTimeout(() => {
+                setLoading(false); // Убираем лоадер после исчезновения
+            }, 100); // Убираем лоадер после задержки
+        });
 
         return () => {
-            clearTimeout(fadeTimer);
-            clearTimeout(endTimer);
+            // Убираем обработчик события при размонтировании компонента
+            window.removeEventListener('load', () => {});
         };
     }, []);
 
