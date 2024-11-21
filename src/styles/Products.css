@@ -519,14 +519,12 @@
   }
 
   .menu-product-title {
-    font-size: 22px; /* Увеличиваем размер заголовка для выделения */
     font-weight: bold; /* Делаем заголовок жирным */
     margin-bottom: 2px; /* Отступ снизу для разделения */
     color: #333; /* Делаем цвет чуть темнее для лучшего контраста */
   }
 
-  .menu-product-price,
-  .menu-product-description {
+  .menu-product-price{
     font-weight: bolder;
     font-size: 17px; /* Немного увеличиваем шрифт для лучшего восприятия */
     margin-bottom: 5px; /* Добавляем отступы между строками */
