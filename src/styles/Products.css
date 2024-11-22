@@ -273,7 +273,6 @@
   font-size: 50px; /* Размер шрифта заголовка */
   color:#ff5900;
   margin: 0;
-  font-size: large;
 }
 .modal-content img {
   width: 45%; /* Ширина изображения в модальном окне */
@@ -458,7 +457,7 @@
     max-width: 100%;
   }
   .Mark_Shop{
-    max-width: 90%;
+    width: 90%;
   }
   .menu-product-image {
     width: 120px;
