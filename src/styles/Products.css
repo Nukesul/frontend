@@ -19,103 +19,98 @@
   justify-content: space-between;
 
 }
+.best-seller-product {
+  display: flex; /* Используем flex для выравнивания элементов */
+  flex-direction: column; /* Размещение элементов вертикально */
+  align-items: center; /* Центрируем контент */
+  width: 250px; /* Ширина карточки */
+  margin-right: 20px; /* Отступ между карточками */
+  background-color: #fff; /* Белый фон */
+  border-radius: 12px; /* Скругление углов */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Легкая тень для глубины */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавные эффекты */
+  overflow: hidden; /* Скрытие элементов, выходящих за пределы */
+}
+
+.best-seller-product:hover {
+  transform: translateY(-5px); /* Легкое поднятие карточки при наведении */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15); /* Увеличенная тень при наведении */
+}
+
+.best-seller-product-image {
+  width: 100%; /* Изображение занимает всю ширину карточки */
+  height: 180px; /* Фиксированная высота для изображения */
+  object-fit: cover; /* Покрытие всей области изображения без искажения */
+  border-bottom: 1px solid #e0e0e0; /* Легкая линия под изображением */
+}
+
+.best-seller-product-info {
+  padding: 15px; /* Внутренние отступы для информации */
+  text-align: center; /* Выравнивание текста по центру */
+}
+
+.best-seller-product-title {
+  font-size: 18px; /* Размер шрифта для названия товара */
+  font-weight: 600; /* Средний жирный шрифт */
+  color: #333; /* Темный цвет для заголовка */
+  margin-bottom: 10px; /* Отступ снизу */
+  line-height: 1.4; /* Увеличение межстрочного расстояния для лучшей читаемости */
+  word-wrap: break-word; /* Разбиение длинных слов */
+}
+
+.best-seller-product-price {
+  font-size: 16px; /* Размер шрифта для цены */
+  font-weight: 500; /* Средняя жирность */
+  color: #ff5722; /* Цвет для цены */
+  margin-bottom: 10px; /* Отступ снизу */
+}
+
+.best-seller-product-description {
+  font-size: 14px; /* Размер шрифта для описания */
+  color: #777; /* Тусклый цвет для описания */
+  line-height: 1.5; /* Межстрочный интервал */
+  margin-top: 10px; /* Отступ сверху */
+  white-space: normal; /* Разрешаем перенос строк */
+}
+
 .best-sellers {
+  display: flex; /* Гибкий контейнер */
   overflow-x: auto; /* Горизонтальная прокрутка */
-  padding: 10px; /* Отступы вокруг секции */
-  background: linear-gradient(90deg, #ffffff, #ffe0d04e, #ffffff);
-  background-size: 400% 400%;
-  position: relative;
-  border-radius: 10px; /* Скругление углов контейнера */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Тень для создания глубины */
-  white-space: nowrap; /* Запрет на перенос строк для карточек */
-  animation: animate_Best_Prd 20s linear infinite;
-  padding-bottom: 20px; /* Увеличиваем отступ снизу для лучшей прокрутки */
+  padding: 20px 10px; /* Отступы */
+  background: #f9f9f9; /* Легкий фон */
+  border-radius: 12px; /* Скругление углов */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Легкая тень */
 }
 
 @keyframes animate_Best_Prd {
   0% {
-    box-shadow: 0 0 0 0 rgba(228, 198, 25, 0);
     background-position: 0% 100%;
   }
   50% {
-    background-position: 1000% 100%;
+    background-position: 100% 100%;
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(228, 198, 25, 0);
     background-position: 0% 100%;
   }
 }
 
-.Mark_Shop {
-  text-align: center;
-  font-family: sans-serif;
-}
+@media (max-width: 768px) {
+  .best-seller-product {
+    width: 200px; /* Уменьшаем размер карточки на мобильных устройствах */
+    margin-right: 15px; /* Меньший отступ */
+  }
 
-.best-seller-product {
-  display: inline-flex; /* Используем inline-flex для горизонтального выравнивания */
-  align-items: center; /* Вертикальное выравнивание по центру */
-  width: 300px; /* Ширина товара */
-  margin-right: 15px; /* Отступ между товарами */
-  background-color: #ffffff; /* Белый фон для товара */
-  border-radius: 10px; /* Скругление углов товара */
-  transition: transform 0.3s, box-shadow 0.3s; /* Плавный эффект при наведении */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Тень для товара */
-}
+  .best-seller-product-title {
+    font-size: 16px; /* Уменьшаем размер шрифта заголовка */
+  }
 
-.best-seller-product:hover {
-  transform: scale(1.02); /* Увеличение размера при наведении */
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); /* Увеличиваем тень при наведении */
-}
+  .best-seller-product-price {
+    font-size: 14px; /* Уменьшаем размер шрифта цены */
+  }
 
-.best-seller-product-image {
-  width: 120px; /* Ширина изображения */
-  height: 120px; /* Высота изображения */
-  border-radius: 10px 0 0 10px; /* Скругление углов только слева */
-  object-fit: cover; /* Обеспечивает корректное отображение изображения */
-}
-
-.best-seller-product-info {
-  padding: 10px; /* Внутренние отступы для информации */
-  flex: 1; /* Занимает оставшееся пространство */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.best-seller-product-title {
-  font-size: 20px; /* Увеличенный размер шрифта заголовка товара */
-  font-weight: bold; /* Жирный шрифт */
-  color: #333; /* Темный цвет заголовка */
-  margin-bottom: 10px; /* Увеличиваем отступ снизу */
-  transition: color 0.3s; /* Плавный переход цвета при наведении */
-}
-
-.best-seller-product-title:hover {
-  color: #ff5722; /* Цвет при наведении на заголовок */
-}
-
-.best-seller-product-price {
-  color: #ff5722; /* Цвет для цены */
-  font-size: 18px; /* Увеличенный размер шрифта для цены */
-  margin: 5px 0; /* Отступы для цены */
-  font-weight: bold; /* Жирный шрифт для цены */
-}
-
-.best-seller-product-description {
-  font-size: 12px; /* Размер шрифта для описания */
-  color: #777; /* Цвет описания */
-  max-height: 40px; /* Ограничение высоты описания */
-  overflow: hidden; /* Скрытие переполненной информации */
-  text-overflow: ellipsis; /* Троеточие в конце переполненного текста */
-  white-space: normal; /* Разрешаем перенос строк */
-  display: -webkit-box; /* Создаем многоколоночный контейнер для текста */
-  -webkit-line-clamp: 2; /* Ограничиваем количество строк */
-  -webkit-box-orient: vertical; /* Устанавливаем вертикальную ориентацию для обрезки */
-}
-
-/* Для улучшения дизайна */
-.best-seller-product:hover .best-seller-product-image {
-  filter: brightness(0.9); /* Уменьшение яркости изображения при наведении */
+  .best-seller-product-description {
+    font-size: 12px; /* Уменьшаем размер шрифта описания */
+  }
 }
 
 .option__container {
