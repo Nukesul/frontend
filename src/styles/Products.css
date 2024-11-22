@@ -29,6 +29,7 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Тень для создания глубины */
   white-space: nowrap; /* Запрет на перенос строк для карточек */
   animation: animate_Best_Prd 20s linear infinite;
+  padding-bottom: 20px; /* Увеличиваем отступ снизу для лучшей прокрутки */
 }
 
 @keyframes animate_Best_Prd {
@@ -57,12 +58,13 @@
   margin-right: 15px; /* Отступ между товарами */
   background-color: #ffffff; /* Белый фон для товара */
   border-radius: 10px; /* Скругление углов товара */
-  transition: transform 0.3s; /* Плавный эффект при наведении */
+  transition: transform 0.3s, box-shadow 0.3s; /* Плавный эффект при наведении */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Тень для товара */
 }
 
 .best-seller-product:hover {
   transform: scale(1.02); /* Увеличение размера при наведении */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); /* Увеличиваем тень при наведении */
 }
 
 .best-seller-product-image {
@@ -81,16 +83,22 @@
 }
 
 .best-seller-product-title {
-  font-size: 18px; /* Размер шрифта заголовка товара */
+  font-size: 20px; /* Увеличенный размер шрифта заголовка товара */
   font-weight: bold; /* Жирный шрифт */
   color: #333; /* Темный цвет заголовка */
-  margin-bottom: 5px; /* Отступ снизу */
+  margin-bottom: 10px; /* Увеличиваем отступ снизу */
+  transition: color 0.3s; /* Плавный переход цвета при наведении */
+}
+
+.best-seller-product-title:hover {
+  color: #ff5722; /* Цвет при наведении на заголовок */
 }
 
 .best-seller-product-price {
   color: #ff5722; /* Цвет для цены */
-  font-size: 16px; /* Размер шрифта для цены */
+  font-size: 18px; /* Увеличенный размер шрифта для цены */
   margin: 5px 0; /* Отступы для цены */
+  font-weight: bold; /* Жирный шрифт для цены */
 }
 
 .best-seller-product-description {
