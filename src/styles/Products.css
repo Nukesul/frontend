@@ -101,8 +101,6 @@
   overflow: hidden; /* Обрезка длинного текста */
   text-overflow: ellipsis; /* Троеточие для длинного текста */
 }
-
-
 .option__container {
   display: flex;
   position: sticky;
