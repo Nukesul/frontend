@@ -26,6 +26,7 @@
   background-color: #f39c12;  /* Оранжевый цвет для выделения цены */
   padding: 5px 10px;
   text-align: center;
+  margin: 0;
 }
 .best-sellers {
   display: flex;
