@@ -24,10 +24,9 @@
   color: #fff;
   background-color: #f38a12;  /* Оранжевый цвет для выделения */
   padding: 5px 10px;  /* Добавлен отступ для большего комфорта */
-  border-radius: 22% 20px;  /* Сбалансированные округленные углы */
+  border-radius: 25% 25px;  /* Сбалансированные округленные углы */
   position: relative;
   max-width: 50%;  /* Сделаем ширину адаптивной */
-  min-width: 200px;  /* Минимальная ширина для удобства */
   width: auto;  /* Чтобы ширина могла меняться в зависимости от контента */
   text-align: center;  /* Центрирование текста */
   left: 50%;
@@ -457,7 +456,9 @@
     gap: 15px; /* Добавляем отступы между картинкой и текстом */
     max-width: 100%;
   }
-
+  .Mark_Shop{
+    max-width: 90%;
+  }
   .menu-product-image {
     width: 120px;
     height: auto;
