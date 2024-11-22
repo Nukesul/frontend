@@ -30,6 +30,7 @@
   white-space: nowrap; /* Запрет на перенос строк для карточек */
   animation: animate_Best_Prd 20s linear infinite;
 }
+
 @keyframes animate_Best_Prd {
   0% {
     box-shadow: 0 0 0 0 rgba(228, 198, 25, 0);
@@ -43,19 +44,23 @@
     background-position: 0% 100%;
   }
 }
-.Mark_Shop{
+
+.Mark_Shop {
   text-align: center;
   font-family: sans-serif;
 }
+
 .best-seller-product {
-  display: inline-flex; /* Используем inline-flex для горизонтального выравнивания */
-  align-items: center; /* Вертикальное выравнивание по центру */
+  display: flex; /* Используем flex для корректного поведения */
+  flex-direction: column; /* Размещение элементов по вертикали */
+  align-items: center; /* Центрирование по горизонтали */
   width: 300px; /* Ширина товара */
   margin-right: 15px; /* Отступ между товарами */
   background-color: #ffffff; /* Белый фон для товара */
   border-radius: 10px; /* Скругление углов товара */
   transition: transform 0.3s; /* Плавный эффект при наведении */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Тень для товара */
+  overflow: hidden; /* Скрытие переполненного контента */
 }
 
 .best-seller-product:hover {
@@ -74,7 +79,8 @@
   flex: 1; /* Занимает оставшееся пространство */
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start; /* Вертикальное выравнивание текста */
+  height: 100%; /* Обеспечиваем полный рост для информации */
 }
 
 .best-seller-product-title {
@@ -82,6 +88,8 @@
   font-weight: bold; /* Жирный шрифт */
   color: #333; /* Темный цвет заголовка */
   margin-bottom: 5px; /* Отступ снизу */
+  white-space: normal; /* Разрешаем перенос строк */
+  overflow-wrap: break-word; /* Разбиваем слова по необходимости */
 }
 
 .best-seller-product-price {
@@ -93,13 +101,10 @@
 .best-seller-product-description {
   font-size: 12px; /* Размер шрифта для описания */
   color: #777; /* Цвет описания */
-  max-height: 40px; /* Ограничение высоты описания */
-  overflow: hidden; /* Скрытие переполненной информации */
-  text-overflow: ellipsis; /* Троеточие в конце переполненного текста */
   white-space: normal; /* Разрешаем перенос строк */
-  display: -webkit-box; /* Создаем многоколоночный контейнер для текста */
-  -webkit-line-clamp: 2; /* Ограничиваем количество строк */
-  -webkit-box-orient: vertical; /* Устанавливаем вертикальную ориентацию для обрезки */
+  overflow-wrap: break-word; /* Разбиваем длинные слова */
+  margin-top: 5px; /* Отступ сверху для описания */
+  display: block; /* Блоковое отображение */
 }
 
 /* Для улучшения дизайна */
