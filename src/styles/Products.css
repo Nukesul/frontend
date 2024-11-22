@@ -22,18 +22,18 @@
 .Mark_Shop {
   font-weight: bold;
   color: #fff;
-  background-color: #f39c12;  /* Оранжевый цвет для выделения */
-  padding: 5px 15px;  /* Добавлен отступ для большего комфорта */
-  border-radius: 20% 15px;  /* Сбалансированные округленные углы */
+  background-color: #f38a12;  /* Оранжевый цвет для выделения */
+  padding: 5px 10px;  /* Добавлен отступ для большего комфорта */
+  border-radius: 22% 20px;  /* Сбалансированные округленные углы */
   position: relative;
-  max-width: 60%;  /* Сделаем ширину адаптивной */
+  max-width: 50%;  /* Сделаем ширину адаптивной */
   min-width: 200px;  /* Минимальная ширина для удобства */
   width: auto;  /* Чтобы ширина могла меняться в зависимости от контента */
   text-align: center;  /* Центрирование текста */
   left: 50%;
   transform: translateX(-50%);  /* Центрирование по горизонтали */
   box-sizing: border-box;  /* Чтобы padding не увеличивал размер элемента */
-  font-size: 1rem;  /* Уменьшенный размер шрифта */
+  font-size: 1.3rem;  /* Уменьшенный размер шрифта */
 }
 .best-sellers {
   display: flex;
@@ -42,7 +42,6 @@
   padding: 30px 20px;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
-  margin-top: 10px;
 }
 
 .best-seller-product {
