@@ -20,13 +20,15 @@
 
 }
 .Mark_Shop{
+  max-width: 300px;
   font-weight: bold;
   color: #fff;
-  border-radius: 30px;
+  border-radius: 20% 30px;
   background-color: #f39c12;  /* Оранжевый цвет для выделения цены */
-  padding: 5px 10px;
-  text-align: center;
-  margin: 0;
+  padding: 0 5px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .best-sellers {
   display: flex;
