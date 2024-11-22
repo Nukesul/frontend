@@ -46,17 +46,15 @@
 }
 
 .best-seller-product {
-  display: inline-flex; /* Используем inline-flex для горизонтального выравнивания */
-  flex-direction: column; /* Элементы внутри карточки расположены вертикально */
-  align-items: center; /* Выравнивание по центру */
-  justify-content: flex-start; /* Выравнивание по верхнему краю */
-  width: 250px; /* Фиксированная ширина карточки */
+  display: flex; /* Используем flex для горизонтального расположения */
+  flex-direction: row; /* Ряд, чтобы элементы шли слева направо */
+  align-items: center; /* Вертикальное выравнивание по центру */
+  width: 300px; /* Фиксированная ширина товара */
   margin-right: 15px; /* Отступ между товарами */
   background-color: #ffffff; /* Белый фон для товара */
-  border-radius: 12px; /* Скругление углов */
+  border-radius: 12px; /* Скругление углов товара */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Тень для товара */
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Плавные эффекты */
-  overflow: hidden; /* Скрытие контента, выходящего за пределы */
 }
 
 .best-seller-product:hover {
@@ -65,35 +63,34 @@
 }
 
 .best-seller-product-image {
-  width: 100%; /* Изображение на всю ширину карточки */
-  height: 180px; /* Фиксированная высота для изображения */
-  object-fit: cover; /* Покрытие всей области изображения без искажения */
-  border-bottom: 1px solid #e0e0e0; /* Легкая линия под изображением */
+  width: 120px; /* Ширина изображения */
+  height: 120px; /* Высота изображения */
+  border-radius: 10px 0 0 10px; /* Скругление углов только слева */
+  object-fit: cover; /* Обеспечивает корректное отображение изображения */
 }
 
 .best-seller-product-info {
-  padding: 15px; /* Внутренние отступы для информации */
-  text-align: center; /* Выравнивание текста по центру */
+  padding: 10px; /* Внутренние отступы для информации */
+  flex: 1; /* Занимает оставшееся пространство */
 }
 
 .best-seller-product-title {
-  font-size: 18px; /* Размер шрифта для заголовка */
-  font-weight: 600; /* Средняя жирность */
+  font-size: 18px; /* Размер шрифта для заголовка товара */
+  font-weight: bold; /* Жирный шрифт */
   color: #333; /* Темный цвет заголовка */
   margin-bottom: 10px; /* Отступ снизу */
   word-wrap: break-word; /* Разбиение длинных слов */
 }
 
 .best-seller-product-price {
-  font-size: 16px; /* Размер шрифта для цены */
-  font-weight: 500; /* Средняя жирность */
   color: #ff5722; /* Цвет для цены */
-  margin-bottom: 10px; /* Отступ снизу */
+  font-size: 16px; /* Размер шрифта для цены */
+  margin: 5px 0; /* Отступы для цены */
 }
 
 .best-seller-product-description {
   font-size: 14px; /* Размер шрифта для описания */
-  color: #777; /* Цвет для описания */
+  color: #777; /* Цвет описания */
   line-height: 1.5; /* Межстрочный интервал */
   margin-top: 10px; /* Отступ сверху */
   text-align: center; /* Выравнивание текста по центру */
@@ -101,6 +98,7 @@
   overflow: hidden; /* Обрезка длинного текста */
   text-overflow: ellipsis; /* Троеточие для длинного текста */
 }
+
 .option__container {
   display: flex;
   position: sticky;
@@ -493,7 +491,7 @@
     border-radius: 10px;
   }
   .best-seller-product {
-    width: 200px; /* Уменьшаем карточки на мобильных */
+    width: 220px; /* Уменьшаем карточки на мобильных */
     margin-right: 10px; /* Меньший отступ */
   }
 
