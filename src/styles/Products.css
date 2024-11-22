@@ -35,9 +35,10 @@
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  padding: 15px;
-  width: 280px;
-  height: 150px;  /* Фиксированная высота для карточек */
+  padding: 10px 15px;
+  min-width: 250px;  /* Минимальная ширина для карточки */
+  max-width: 300px;  /* Максимальная ширина карточки */
+  height: 120px;  /* Фиксированная высота карточки */
   scroll-snap-align: center;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   flex-shrink: 0;  /* Отключаем растягивание карточек */
@@ -49,8 +50,8 @@
 }
 
 .best-seller-product-image {
-  width: 100px;
-  height: 100px;
+  width: 80px;  /* Уменьшаем картинку для экономии пространства */
+  height: 80px;
   object-fit: cover;
   border-radius: 5px;
   margin-right: 15px;
@@ -59,28 +60,29 @@
 .best-seller-product-info {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   width: 100%;
 }
 
 .best-seller-product-title {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 500;
   color: #333;
-  margin-bottom: 8px;
-  white-space: nowrap; /* Обрезаем текст, если он слишком длинный */
-  overflow: hidden;
-  text-overflow: ellipsis; /* Добавляем многоточие, если текст не помещается */
+  margin-bottom: 5px;
+  overflow: hidden; 
+  text-overflow: ellipsis;  /* Обрезаем текст */
+  white-space: nowrap;  /* Текст не будет переноситься на новую строку */
 }
 
 .best-seller-product-price {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 600;
   color: #fff;
   background-color: #f39c12;  /* Оранжевый цвет для выделения цены */
   padding: 5px 10px;
-  border-radius: 20px;
+  border-radius: 15px;
   text-align: center;
+  white-space: nowrap;  /* Не переносить цену на новую строку */
 }
 
 @keyframes fadeIn {
