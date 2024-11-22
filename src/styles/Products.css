@@ -19,6 +19,14 @@
   justify-content: space-between;
 
 }
+.Mark_Shop{
+  font-weight: bold;
+  color: #fff;
+  border-radius: 30px;
+  background-color: #f39c12;  /* Оранжевый цвет для выделения цены */
+  padding: 5px 10px;
+  text-align: center;
+}
 .best-sellers {
   display: flex;
   overflow-x: auto;
@@ -35,7 +43,7 @@
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  padding: 10px 15px;
+  padding: 5px 15px;
   min-width: 280px;  /* Минимальная ширина карточки */
   max-width: 320px;  /* Максимальная ширина карточки */
   height: 140px;  /* Фиксированная высота карточки */
