@@ -152,22 +152,16 @@
 }
 
 .best-seller-product-title {
-  font-size: 16px; /* Размер шрифта заголовка товара */
+  font-size: 18px; /* Размер шрифта заголовка товара */
   font-weight: bold; /* Жирный шрифт */
   color: #333; /* Темный цвет заголовка */
   margin-bottom: 5px; /* Отступ снизу */
-  white-space: nowrap; /* Запрет на перенос строки */
-  overflow: hidden; /* Скрытие переполненного текста */
-  text-overflow: ellipsis; /* Троеточие в конце переполненного текста */
 }
 
 .best-seller-product-price {
   color: #ff5722; /* Цвет для цены */
-  font-size: 14px; /* Размер шрифта для цены */
+  font-size: 16px; /* Размер шрифта для цены */
   margin: 5px 0; /* Отступы для цены */
-  white-space: nowrap; /* Запрет на перенос строки */
-  overflow: hidden; /* Скрытие переполненного текста */
-  text-overflow: ellipsis; /* Троеточие в конце переполненного текста */
 }
 
 .best-seller-product-description {
@@ -256,12 +250,12 @@
 
 .option__name li a {
   text-decoration: none;
-  color: #ff8800;
+  color: #252525;
   font-weight: bold;
   padding: 8px 13px;
   border-radius: 8px;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  background: linear-gradient(90deg,#ffa2281f, #ffffff,#ffa2281f);
+  background: linear-gradient(90deg,#b6b6b61f, #ffffff,#b6b6b61f);
   background-size: 400% 400%;
   animation: animate_Prd 3s linear infinite;
 }
