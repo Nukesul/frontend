@@ -20,89 +20,82 @@
 
 }
 .best-sellers {
-  display: flex; /* Выстраиваем элементы по горизонтали */
-  overflow-x: auto; /* Горизонтальная прокрутка */
-  padding: 20px 0; /* Отступы по вертикали */
-  background: linear-gradient(90deg, #ffffff, #ffe0d04e, #ffffff); /* Градиентный фон */
-  background-size: 400% 400%;
-  position: relative;
-  border-radius: 12px; /* Скругление углов контейнера */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Тень для создания глубины */
-  white-space: nowrap; /* Запрещаем перенос строк для товаров */
-  animation: animate_Best_Prd 20s linear infinite;
-}
-
-@keyframes animate_Best_Prd {
-  0% {
-    box-shadow: 0 0 0 0 rgba(228, 198, 25, 0);
-    background-position: 0% 100%;
-  }
-  50% {
-    background-position: 1000% 100%;
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(228, 198, 25, 0);
-    background-position: 0% 100%;
-  }
+  display: flex;
+  overflow-x: auto;
+  gap: 15px;
+  padding: 30px 20px;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  margin-top: 50px;
 }
 
 .best-seller-product {
-  display: flex; /* Выстраиваем картинку и текст в строку */
-  align-items: center; /* Выравниваем по центру по вертикали */
-  justify-content: flex-start; /* Выравнивание по левому краю */
-  width: 320px; /* Фиксированная ширина карточки */
-  margin-right: 20px; /* Отступы между товарами */
-  background-color: #ffffff; /* Белый фон для товара */
-  border-radius: 12px; /* Скругление углов */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Тень для товара */
-  transition: transform 0.3s ease-in-out; /* Плавное изменение при наведении */
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 15px;
+  width: 280px;
+  scroll-snap-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .best-seller-product:hover {
-  transform: translateY(-5px); /* Легкое приподнимание карточки */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Увеличение тени при наведении */
+  transform: translateY(-4px); /* Легкое движение вверх при наведении */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .best-seller-product-image {
-  width: 120px; /* Ширина изображения */
-  height: 120px; /* Высота изображения */
-  border-radius: 8px 0 0 8px; /* Скругление углов слева */
-  object-fit: cover; /* Обрезка изображения */
-  margin-right: 15px; /* Отступ справа от картинки */
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-right: 15px;
 }
 
 .best-seller-product-info {
-  display: flex; /* Используем flex для вертикального выравнивания */
-  flex-direction: column; /* Вертикальное расположение текста */
-  justify-content: center; /* Центрирование текста */
-  padding: 10px 15px; /* Отступы внутри информации */
-  flex: 1; /* Занимает оставшееся пространство */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
 }
 
 .best-seller-product-title {
-  font-size: 15px; /* Размер шрифта для заголовка товара */
-  font-weight: bold; /* Жирное начертание */
-  color: #333; /* Темный цвет заголовка */
-  margin-bottom: 8px; /* Отступ снизу */
-  line-height: 1.3; /* Межстрочный интервал */
-  word-wrap: break-word; /* Перенос длинных слов */
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Обрезка длинных названий */
 }
 
 .best-seller-product-price {
-  font-size: 16px; /* Размер шрифта для цены */
-  color: #ff5722; /* Цвет для цены */
-  margin-bottom: 10px; /* Отступ снизу */
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: #f39c12; /* Оранжевый цвет для выделения цены */
+  padding: 5px 10px;
+  border-radius: 20px;
+  text-align: center;
 }
 
-.best-seller-product-description {
-  font-size: 14px; /* Размер шрифта для описания */
-  color: #777; /* Светлый цвет для описания */
-  line-height: 1.5; /* Межстрочный интервал */
-  text-align: left; /* Выравнивание по левому краю */
-  white-space: normal; /* Разрешаем перенос строк */
-  overflow: hidden; /* Скрытие переполненного текста */
-  text-overflow: ellipsis; /* Троеточие в конце */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
+
+.best-seller-product-info {
+  animation: fadeIn 0.3s ease-out;
+}
+
 .option__container {
   display: flex;
   position: sticky;
@@ -493,21 +486,6 @@
   .modal-content img {
     width: 60%; /* Ширина изображения на мобильных */
     border-radius: 10px;
-  }
-  .best-seller-product {
-    width: 260px; /* Меньшая ширина на мобильных устройствах */
-  }
-
-  .best-seller-product-title {
-    font-size: 16px; /* Меньший размер шрифта на мобильных */
-  }
-
-  .best-seller-product-price {
-    font-size: 14px; /* Меньший размер шрифта на мобильных */
-  }
-
-  .best-seller-product-description {
-    font-size: 12px; /* Меньший размер шрифта на мобильных */
   }
 }
 .halal_box{
