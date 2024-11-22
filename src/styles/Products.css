@@ -127,7 +127,6 @@
   margin-right: 15px; /* Отступ между товарами */
   background-color: #ffffff; /* Белый фон для товара */
   border-radius: 10px; /* Скругление углов товара */
-  overflow: hidden; /* Скрытие переполненной информации */
   transition: transform 0.3s; /* Плавный эффект при наведении */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Тень для товара */
 }
